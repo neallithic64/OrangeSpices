@@ -1,0 +1,68 @@
+.bg-gradient-primary {
+  background-color: #ffbf9f !important;
+  background-image: linear-gradient(180deg,#fae9d9 50%,#fae9d9) !important;
+  background-size: cover !important;
+}
+
+.sidebar {
+    max-width: auto !important;
+  }
+    
+.sidebar-dark .sidebar-brand {
+    
+    font-family: 'Quicksand' !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    width: auto !important;
+}
+
+.sidebar-brand-text{
+    color: #c64327 !important;
+    padding-left: 0.4rem;
+    font-size: 18px !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #c64327 !important;
+    font-weight: bold;
+    height: 10px !important;
+}
+
+.text-primary{
+    color: #c64327 !important;
+}
+
+.container, .pt-4{
+    padding-bottom: 1.5rem;
+}
+
+.btn-primary{
+    background-color: #f47639 !important;
+    border: 2px solid #f47639 !important;
+    font-size: 10px !important;
+}
+
+.list-group{
+    text-align: center !important;
+}
+
+.list-group-item{
+    font-size: 12px !important;
+    height: 25px !important;
+}
+
+div .col-6{
+    float: left;
+}
+
+.navbar-search{
+    width: 47% !important;
+}
+
+.navbar-brand{
+    padding-top: 10px !important;
+}
+
+footer{
+    height: 50px !important;
+}
