@@ -12,26 +12,26 @@ a:link, a:visited {
     font-weight: bold;
     top: 45%;
     line-height:130px;
-    }
+}
     
-    .flex-container {
+.flex-container {
     display: flex;
-    }
+}
             
-    body{
+body{
     padding-top: 65px;
-    }
+}
     
-    a:hover {
+a:hover {
     color: white;
     background-color: #C64327;
-    }
+}
     
-    .content {
+.content {
     max-width: 850px;
     margin: auto;
     background: white;
     border: solid;
     border-color: #C64327;
     border-width: 5px;
-    }
+}

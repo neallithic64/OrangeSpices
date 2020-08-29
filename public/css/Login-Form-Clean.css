@@ -53,3 +53,9 @@ body {
 .login-clean form .btn-primary:active {
   transform: translateY(1px);
 }
+
+.login-clean .messages {
+  color: #c64327;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+}
