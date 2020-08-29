@@ -1,0 +1,69 @@
+<title>Ingredients</title>
+<body>
+<div class="searchcontainer">
+    <form>
+        <input type="text" name="search">
+        <button type="submit" value="submit" class="button">Search</button>
+    </form>
+</div>
+
+<div class="flex-container">
+    <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'ingList')">Ingredient List</button>
+        <button class="tablinks" onclick="openTab(event, 'addIng')">Add Ingredient</button>
+        <button class="tablinks" onclick="openTab(event, 'addCat')">Add Category</button>
+        <button class="tablinks" onclick="openTab(event, 'others')">Others</button>
+    </div>
+
+    <div class="category">
+        <form>
+            <select id="category" name="category">
+                <option value="au">Select Category</option>
+                <option value="ca">Sauce</option>
+                <option value="usa">Meat</option>
+            </select>
+        </form>
+    </div>
+</div>
+
+<div class="card-flex">
+    <div id="ingList" class="tabcontent">
+        {{>card}}
+    </div> 
+</div>
+
+    <div id="addIng" class="tabcontent">
+        <h3>Coming Soon...</h3>
+        <p>To do in ANDE2.</p> 
+    </div>
+
+    <div id="addCat" class="tabcontent">
+        <h3>Coming Soon...</h3>
+        <p>To do in ANDE2.</p>
+    </div>
+
+    <div id="others" class="tabcontent">
+        <h3>Coming Soon...</h3>
+        <p>To do in ANDE2.</p>
+    </div>
+
+<script>
+function openTab(event, ingredient) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(ingredient).style.display = "block";
+    event.currentTarget.className += " active";
+    document.getElementById("ingList").click();
+}
+</script>
+   
+</body> 

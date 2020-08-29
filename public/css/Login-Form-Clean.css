@@ -1,10 +1,7 @@
-body {
-  background: url('../img/bg.jpg');
-  background-size: cover;
-}
-
 .login-clean {
   padding: 80px 0;
+  background: url('../img/bg.jpg');
+  background-size: cover;
 }
 
 .login-clean form {
@@ -58,4 +55,12 @@ body {
   color: #c64327;
   font-family: 'Roboto Condensed', sans-serif;
   text-align: center;
+}
+
+.login-clean input[type=text] {
+  border-bottom: 2px solid #c64327;
+}
+
+.login-clean input[type=password] {
+  border-bottom: 2px solid #c64327;
 }

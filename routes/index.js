@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const userController = require('../controllers/userController');
+const ingredientController = require('../controllers/ingredientController');
 const { loginValidation } = require('../validators.js');
 
 router.get('/', (req, res) =>{
@@ -26,6 +27,17 @@ router.get('/category/staff', (req, res) => {
   //res.render('categoryAdmin',{
   //  username: req.session.username
   //});
+});
+
+// Get ingredients page
+router.get('/ingredients', (req, res) => {
+  console.log("Read ingredients successful!");
+
+  ingredientController.getAllIngredients(req, (ingredients) => {
+    res.render('ingredients',{
+      item: ingredients
+    });
+  })
 });
 
 // Logout
