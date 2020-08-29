@@ -62,7 +62,7 @@ div[class*="tabcontent"]:first-of-type {
   font-weight: bold;
   font-size: 17px;
   color: #C64327;
-  border-radius: 25px 25px 0px 0px;
+  border-radius: 0;
   width: 175px;
   height: 45px;
   padding-top: 3px;
