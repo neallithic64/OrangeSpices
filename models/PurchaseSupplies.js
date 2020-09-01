@@ -5,6 +5,7 @@ const purchaseSupplySchema = new mongoose.Schema({
   purchasePrice: { type: Number, required: true},
   purchaseDate: { type: Date, required: true},
   expiryDate: { type: Date, required: true},
+  supplyID: { type: mongoose.Schema.Types.ObjectId, ref: 'supply', required: false}, //set to true afterwards!!
 });
 
 const Purchase = mongoose.model('purchase', purchaseSupplySchema);

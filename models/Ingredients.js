@@ -2,8 +2,8 @@ const mongoose = require('./connection');
 
 const ingredientSchema = new mongoose.Schema({
   ingredientName: { type: String, required: true, min:5},
-  quantity: { type: Number, required: true},
-  unit: { type: mongoose.Schema.Types.ObjectId, ref: 'unit', required: false} //set to true afterwards!!
+  totalQuantity: { type: Number, required: true},
+  unitID: { type: mongoose.Schema.Types.ObjectId, ref: 'unit', required: false} //set to true afterwards!!
 });
 
 const Ingredient = mongoose.model('ingredient', ingredientSchema);

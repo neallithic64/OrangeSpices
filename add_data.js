@@ -77,10 +77,10 @@ var unitArray = [
   },
 ];
 
-populate1();
-populate2();
-populate3();
-populate4();
+populate1(); // users and sample ingredients
+populate2(); // users and sample ingredients
+populate3(); // units
+populate4(); // more ingredients sample
 
 function populate1(){
   const saltRounds = 10;

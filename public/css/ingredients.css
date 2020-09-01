@@ -38,6 +38,15 @@
   height: 50px;
   width: 85px;
 }
+
+#ingTitle {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  border: 2px solid #F47639;
+  color: #F47639;
+  width: 200px;
+  text-align: center;
+}
     
 /* Tab */
 .tab {

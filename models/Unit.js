@@ -14,3 +14,10 @@ exports.addUnit = function(obj, next) {
       next(err, add);
     });
 };
+
+// Get all units
+exports.getAll = (param, next) => {
+  Unit.find({}, (err, units) => {
+    next(err, units);
+  });
+};

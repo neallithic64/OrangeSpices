@@ -1,8 +1,9 @@
 const mongoose = require('./connection');
 
 const productSchema = new mongoose.Schema({
-    prodName: { type: String, required: true, min:5},
-    prodPrice: { type: Number, required: true},
+  prodName: { type: String, required: true, min:5},
+  prodPrice: { type: Number, required: true },
+  category: { type: String, required: true },
 });
 
 const Product = mongoose.model('product', productSchema);
