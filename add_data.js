@@ -21,43 +21,43 @@ var userArray = [
 var ingredientArray = [
   {
     ingredientName: 'Chicken',
-    quantity: 5
+    totalQuantity: 5
   },
   {
     ingredientName: 'Pork',
-    quantity: 7
+    totalQuantity: 7
   },
   {
     ingredientName: 'Chicken',
-    quantity: 5
+    totalQuantity: 5
   },
   {
     ingredientName: 'Pork',
-    quantity: 7
+    totalQuantity: 7
   },
   {
     ingredientName: 'Chicken',
-    quantity: 5
+    totalQuantity: 5
   },
   {
     ingredientName: 'Pork',
-    quantity: 7
+    totalQuantity: 7
   },
   {
     ingredientName: 'Chicken',
-    quantity: 5
+    totalQuantity: 5
   },
   {
     ingredientName: 'Pork',
-    quantity: 7
+    totalQuantity: 7
   },
     {
     ingredientName: 'Chicken',
-    quantity: 5
+    totalQuantity: 5
   },
   {
     ingredientName: 'Pork',
-    quantity: 7
+    totalQuantity: 7
   },
 ];
 
@@ -100,7 +100,7 @@ function populate1(){
 
   const ingredient = {
     ingredientName: ingredientArray[0].ingredientName,
-    quantity: ingredientArray[0].quantity
+    totalQuantity: ingredientArray[0].totalQuantity
 
   };
 
@@ -129,7 +129,7 @@ function populate2(){
 
   const ingredient = {
     ingredientName: ingredientArray[1].ingredientName,
-    quantity: ingredientArray[1].quantity
+    totalQuantity: ingredientArray[1].totalQuantity
   };
 
   ingredientModel.addIngredient(ingredient, function(err, result) {
@@ -173,35 +173,35 @@ function populate3(){
 function populate4(){
   const ing1 = {
     ingredientName: ingredientArray[2].ingredientName,
-    quantity: ingredientArray[2].quantity
+    totalQuantity: ingredientArray[2].totalQuantity
   };
   const ing2 = {
     ingredientName: ingredientArray[3].ingredientName,
-    quantity: ingredientArray[3].quantity
+    totalQuantity: ingredientArray[3].totalQuantity
   };
   const ing3 = {
     ingredientName: ingredientArray[4].ingredientName,
-    quantity: ingredientArray[4].quantity
+    totalQuantity: ingredientArray[4].totalQuantity
   };
   const ing4 = {
     ingredientName: ingredientArray[5].ingredientName,
-    quantity: ingredientArray[5].quantity
+    totalQuantity: ingredientArray[5].totalQuantity
   };
   const ing5 = {
     ingredientName: ingredientArray[6].ingredientName,
-    quantity: ingredientArray[6].quantity
+    totalQuantity: ingredientArray[6].totalQuantity
   };
   const ing6 = {
     ingredientName: ingredientArray[7].ingredientName,
-    quantity: ingredientArray[7].quantity
+    totalQuantity: ingredientArray[7].totalQuantity
   };
   const ing7 = {
     ingredientName: ingredientArray[8].ingredientName,
-    quantity: ingredientArray[8].quantity
+    totalQuantity: ingredientArray[8].totalQuantity
   };
   const ing8 = {
     ingredientName: ingredientArray[9].ingredientName,
-    quantity: ingredientArray[9].quantity
+    totalQuantity: ingredientArray[9].totalQuantity
   };
 
   ingredientModel.addIngredient(ing1, function(err, result) {
