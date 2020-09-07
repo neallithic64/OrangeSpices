@@ -38,12 +38,12 @@ app.listen(port, function() {
   console.log(`Server running at http://${hostname}:${port}/`); 
 });
 
-app.engine('hbs', exphbs({
+app.engine('hbs', exphbs.create({
   extname: 'hbs', 
-  defaultView: 'main',
+  defaultLayout: 'main',
   layoutsDir: path.join(__dirname, '/views/layouts'), 
-  partialsDir: path.join(__dirname, '/views/partials'),
-}));
+  partialsDir: path.join(__dirname, '/views/partials')
+}).engine);
 
 app.set('view engine', 'hbs');
 
