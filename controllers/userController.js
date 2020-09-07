@@ -19,7 +19,7 @@ exports.loginUser = (req, res) => {
                 req.session.user = user._id;
                 req.session.username = user.username;              
                 if(req.session.username == 'admin'){
-                    res.redirect('/category/admin');
+                    res.redirect('/category/admin'); // redirect to POS
                 } // if statement for staff
               } else {  // If passwords don't match
                 req.flash('error_msg', 'Password does not match. Please try again.');

@@ -1,11 +1,10 @@
 const mongoose = require('./connection');
-require('mongoose-double')(mongoose);
 
 const ingredientSchema = new mongoose.Schema({
   ingredientName: { type: String, required: true, min:5},
   totalQuantity: { type: Number, required: true},
   unitID: { type: mongoose.Schema.Types.ObjectId, ref: 'unit', required: false}, //set to true afterwards!!
-  avgCost: { type: mongoose.Schema.Types.Double, required: false, default: 0.00},
+  avgCost: { type: Number, required: false, default: 0.00},
 });
 
 const Ingredient = mongoose.model('ingredient', ingredientSchema);
