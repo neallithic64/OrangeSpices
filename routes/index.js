@@ -13,7 +13,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// Get category page
+// Get category page [admin]
 router.get('/category/admin', (req, res) => {
   console.log("Read category (admin) successful!");
   res.render('categoryAdmin',{
@@ -21,7 +21,7 @@ router.get('/category/admin', (req, res) => {
   });
 });
 
-// Get category page
+// Get category page [staff]
 router.get('/category/staff', (req, res) => {
   console.log("Read category (staff) successful!");
   //res.render('categoryAdmin',{
@@ -29,15 +29,52 @@ router.get('/category/staff', (req, res) => {
   //});
 });
 
-// Get ingredients page
+// Get POS page
+/*
+router.get('/pos', (req, res) => {
+  console.log("Read pos successful!");
+
+  res.render('ingredients');
+});
+*/
+
+// Get products page
+router.get('/products', (req, res) => {
+  console.log("Read products successful!");
+  res.render('products');
+});
+
+// Get inventory [ingredients] page
 router.get('/ingredients', (req, res) => {
   console.log("Read ingredients successful!");
 
   ingredientController.getAllIngredients(req, (ingredients) => {
     res.render('ingredients',{
-      item: ingredients
+      item: ingredients,
     });
   })
+});
+
+// Get inventory [supplies] page
+/*
+router.get('/supplies', (req, res) => {
+  console.log("Read supplies successful!");
+
+    res.render('supplies');
+  })
+});
+*/
+
+// Get procurement page
+router.get('/procurement', (req, res) => {
+  console.log("Read procurement successful!");
+  res.render('procurement');
+});
+
+// Get accounting page
+router.get('/accounting', (req, res) => {
+  console.log("Read accounting successful!");
+  res.render('accounting');
 });
 
 // Logout

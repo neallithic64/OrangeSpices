@@ -1,0 +1,115 @@
+.bg-gradient-primary {
+    background-color: #ffffff !important;
+    background-image: linear-gradient(180deg,#ffffff 50%,#ffffff) !important;
+    background-size: cover !important;
+  }
+  
+  .sidebar {
+      max-width: 20% !important;
+    }
+      
+  .sidebar-dark .sidebar-brand {
+      font-family: 'Quicksand' !important;
+      font-size: 18px !important;
+      font-weight: bold !important;
+      width: auto !important;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+      color: #c64327 !important;
+      font-weight: bold;
+      padding: 8px !important;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link:hover {
+      background-color: #c64327 !important;
+      color: #ffffff !important;
+  }
+  
+  .text-primary{
+      color: #c64327 !important;
+      font-size: 20px !important;
+  }
+  
+  .container, .pt-4{
+      padding-bottom: 1.5rem;
+  }
+  
+.add-btn{
+      background-color: #80C376 !important;
+      border: 2px solid #80C376 !important;
+      border-radius: .5rem !important;
+      font-size: 15px !important; 
+  }
+
+.ord-btn{
+    background-color: #f47639 !important;
+    border: 2px solid #f47639 !important;
+    border-radius: .5rem !important;
+    font-size: 15px !important; 
+}
+
+.can-btn{
+    background-color: #c64327 !important;
+    border: 2px solid #c64327 !important;
+    border-radius: .5rem !important;
+    font-size: 15px !important; 
+}
+
+.low-btn{
+    background-color: #f47639 !important;
+    border: 2px solid #f47639 !important;
+    border-radius: .5rem !important;
+    font-size: 15px !important; 
+}
+
+  .buttons{
+    text-align: right !important; 
+    width: 100% !important;
+  }
+
+  .add{
+    text-align: right !important; 
+    width: 100% !important;
+  }
+
+  .table td{
+    vertical-align: baseline !important;
+  }
+
+  .form-control{
+    width: 200px !important;
+  }
+
+  .title{
+      width: 300px;
+  }
+  
+  .list-group{
+      text-align: center !important;
+  }
+  
+  .list-group-item{
+      font-size: 12px !important;
+      height: 25px !important;
+  }
+  
+  div .col-6{
+      float: left;
+  }
+  
+  .navbar-search{
+      width: 47% !important;
+  }
+  
+  .navbar-brand{
+      padding-top: 10px !important;
+  }
+  
+  footer{
+      height: 50px !important;
+  }
+  
+  .numresults{
+      color: #aaaaaa !important;
+  }
