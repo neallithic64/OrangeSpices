@@ -30,6 +30,7 @@
   color: inherit;
   text-indent: 8px;
   height: 42px;
+  width: 240px;
 }
 
 .login-clean form .btn-primary {
@@ -51,10 +52,20 @@
   transform: translateY(1px);
 }
 
-.login-clean input[type=text] {
+.login-clean form input[type=text] {
   border-bottom: 2px solid #c64327;
 }
 
-.login-clean input[type=password] {
+.login-clean form input[type=password] {
   border-bottom: 2px solid #c64327;
+}
+
+.messages1 {
+  text-align: center;
+  color: #c64327;
+}
+
+.messages2 {
+  text-align: left;
+  color: #c64327;
 }

@@ -9,10 +9,24 @@ const productSchema = new mongoose.Schema({
 const Product = mongoose.model('product', productSchema);
 
 // Add Product
-exports.addProduct = function(obj, next) {
-    const product = new Product(obj);
-    //console.log(product);
-    product.save(function(err, prod) {
-      next(err, prod);
-    });
+exports.add = function(obj, next) {
+  const product = new Product(obj);
+
+  product.save(function(err, prod) {
+    next(err, prod);
+  });
+};
+
+// Get all products
+exports.getAll = (param, next) => {
+  Product.find({}, (err, prod) => {
+    next(err, prod);
+  });
+};
+
+// Find product
+exports.getOne = function(query, next) {
+  Product.findOne(query, function(err, prod) {
+    next(err, prod);
+  });
 };

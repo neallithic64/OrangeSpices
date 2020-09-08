@@ -17,10 +17,14 @@ exports.loginUser = (req, res) => {
               if (result) { // passwords match (result == true)
                 // Update session object once matched!
                 req.session.user = user._id;
-                req.session.username = user.username;              
-                if(req.session.username == 'admin'){
-                    res.redirect('/category/admin'); // redirect to POS
-                } // if statement for staff
+                req.session.username = user.username;
+
+                //if(user.userType == 'admin'){
+                    res.redirect('/category/admin'); // redirect to landing page, POS [replace this afterwards]
+                //}
+                //if(user.userType == 'staff'){
+                  //res.redirect('/category/admin'); 
+                //} 
               } else {  // If passwords don't match
                 req.flash('error_msg', 'Password does not match. Please try again.');
                 res.redirect('/login');

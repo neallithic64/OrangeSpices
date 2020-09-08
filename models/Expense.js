@@ -6,3 +6,4 @@ const expenseSchema = new mongoose.Schema({
 });
 
 const Expense = mongoose.model('expense', expenseSchema);
+

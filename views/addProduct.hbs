@@ -1,0 +1,99 @@
+<title>Add Product</title>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 shadow">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center m-0" href="#">
+                    <div class="sidebar-brand-icon"><img src="public/img/logo.png" width="75"></i></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Point of Sale</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="background-color: #c64327 !important; color: #ffffff !important;" href="/products">Products</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/supplies">Inventory</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/procurement">Procurement</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/accounting">Accounting</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/reports">Reports</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="title"><span class="text-primary m-0 font-weight-bold">Add Product</span></div>
+                    <form action="/products/add" method="POST">
+                    <div class="buttons">
+                        <button type="button" class="btn btn-primary btn-sm add-btn">Save</button>
+                        <a href="/products"><button type="button" class="btn btn-primary btn-sm can-btn">Cancel</button></a>
+                    </div>            
+                </nav>
+            <div class="container-fluid">
+                <div class="card shadow mb-3">  
+                    <div class="form-container" style="padding: 20px;">
+                        <div class="col-5">
+                            <div class="messages2">{{> messages}}</div>
+                            <label for="prodName" style="font-weight: bold;">Name</label>
+                            <input type="text" class="form-control" placeholder="Enter product name..." name="prodName">
+                            <p id="prodNameError" class="error"></p>
+                        </div>
+                        <div class="col-4">
+                            <label for="category" style="font-weight: bold;">Category</label>
+                            <select class="form-control" name="category">
+                                <option value="AC">Ala Carte</option>
+                                <option value="BRM">Beef Rice Meals</option>
+                                <option value="PRM">Pork Rice Meals</option>
+                                <option value="CRM">Chicken Rice Meals</option>
+                                <option value="ADB">All Day Breakfast</option>
+                                <option value="GSM">Group Set Meals</option>
+                                <option value="PSM">Party Set Meals</option>
+                                <option value="OT">Others</option>
+                            </select>
+                            <p id="categoryError" class="error"></p>
+                        </div>
+                        </form>
+                        <div class="col-3">
+                            <label for="prodPrice" style="font-weight: bold;">Price</label>
+                            <input type="number" class="form-control" placeholder="Enter product price..." name="prodPrice">
+                            <p id="prodPriceError" class="error"></p>
+                        </div>
+                        <div class="col-12">
+                            <p style="font-weight: bold;">Ingredients</p>
+                            <form class="form-inline" id="ingList">
+                                <div class="form-group mb-2">
+                                    <select class="form-control">
+                                        <option id="name">Ingredient</option>
+                                        {{{ingredientName}}}
+                                    </select>
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <label for="quantity" class="sr-only">Quantity</label>
+                                    <input type="number" class="form-control" id="quantity" placeholder="Quantity">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <select class="form-control">
+                                        <option id="unit">Unit</option>
+                                        {{>units}}
+                                    </select>
+                                </div>
+                                <button style="margin-left: 25px;" type="button" id="addIngredient" class="btn btn-primary mb-2 add-btn">+ Add</button>
+                            </form>
+                        </div>                               
+                    </div>
+                </div>
+            </div>
+    </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © Orange &amp; Spices 2020</span></div>
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

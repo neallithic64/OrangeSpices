@@ -3,7 +3,7 @@ const mongoose = require('./connection');
 const userSchema = new mongoose.Schema({
 	username: { type: String, required: true, min:5},
   password: { type: String, required: true, min:5},
-  userType: { type: String, required: false, default: ""},
+  userType: { type: String, required: true, default: ""},
 });
 
 const User = mongoose.model('users', userSchema);
@@ -28,7 +28,7 @@ exports.getAll = function(next){
     });
 };
 
-// Retrieving just ONE user based on a query (first one)
+// Retrieving just ONE user based on a query
 exports.getOne = function(query, next) {
   User.findOne(query, function(err, user) {
     next(err, user);

@@ -8,12 +8,12 @@ var userArray = [
   {
     username: 'admin',
     password: 'admin',
-    userType: 'Admin'
+    userType: 'admin'
   },
   {
     username: 'staff',
     password: 'orange&spices',
-    userType: 'Staff'
+    userType: 'staff'
   }
 ];
 
@@ -28,36 +28,8 @@ var ingredientArray = [
     totalQuantity: 7
   },
   {
-    ingredientName: 'Chicken',
-    totalQuantity: 5
-  },
-  {
-    ingredientName: 'Pork',
-    totalQuantity: 7
-  },
-  {
-    ingredientName: 'Chicken',
-    totalQuantity: 5
-  },
-  {
-    ingredientName: 'Pork',
-    totalQuantity: 7
-  },
-  {
-    ingredientName: 'Chicken',
-    totalQuantity: 5
-  },
-  {
-    ingredientName: 'Pork',
-    totalQuantity: 7
-  },
-    {
-    ingredientName: 'Chicken',
-    totalQuantity: 5
-  },
-  {
-    ingredientName: 'Pork',
-    totalQuantity: 7
+    ingredientName: 'Beef',
+    totalQuantity: 10
   },
 ];
 
@@ -74,6 +46,12 @@ var unitArray = [
   },
   {
     unitName: 'liter',
+  },
+  {
+    unitName: 'cups',
+  },
+  {
+    unitName: 'tablespoon',
   },
 ];
 
@@ -104,7 +82,7 @@ function populate1(){
 
   };
 
-  ingredientModel.addIngredient(ingredient, function(err, result) {
+  ingredientModel.add(ingredient, function(err, result) {
     if (err) throw err;
     console.log(result);
   })
@@ -132,7 +110,7 @@ function populate2(){
     totalQuantity: ingredientArray[1].totalQuantity
   };
 
-  ingredientModel.addIngredient(ingredient, function(err, result) {
+  ingredientModel.add(ingredient, function(err, result) {
     if (err) throw err;
     console.log(result);
   })
@@ -152,6 +130,14 @@ function populate3(){
     unitName: unitArray[3].unitName
   };
 
+  const unit5 = {
+    unitName: unitArray[4].unitName
+  };
+
+  const unit6 = {
+    unitName: unitArray[5].unitName
+  };
+
   unitModel.addUnit(unit1, function(err, result) {
     if (err) throw err;
     console.log(result);
@@ -168,6 +154,16 @@ function populate3(){
     if (err) throw err;
     console.log(result);
   })
+
+  unitModel.addUnit(unit5, function(err, result) {
+    if (err) throw err;
+    console.log(result);
+  })
+
+  unitModel.addUnit(unit6, function(err, result) {
+    if (err) throw err;
+    console.log(result);
+  })
 }
 
 function populate4(){
@@ -175,72 +171,12 @@ function populate4(){
     ingredientName: ingredientArray[2].ingredientName,
     totalQuantity: ingredientArray[2].totalQuantity
   };
-  const ing2 = {
-    ingredientName: ingredientArray[3].ingredientName,
-    totalQuantity: ingredientArray[3].totalQuantity
-  };
-  const ing3 = {
-    ingredientName: ingredientArray[4].ingredientName,
-    totalQuantity: ingredientArray[4].totalQuantity
-  };
-  const ing4 = {
-    ingredientName: ingredientArray[5].ingredientName,
-    totalQuantity: ingredientArray[5].totalQuantity
-  };
-  const ing5 = {
-    ingredientName: ingredientArray[6].ingredientName,
-    totalQuantity: ingredientArray[6].totalQuantity
-  };
-  const ing6 = {
-    ingredientName: ingredientArray[7].ingredientName,
-    totalQuantity: ingredientArray[7].totalQuantity
-  };
-  const ing7 = {
-    ingredientName: ingredientArray[8].ingredientName,
-    totalQuantity: ingredientArray[8].totalQuantity
-  };
-  const ing8 = {
-    ingredientName: ingredientArray[9].ingredientName,
-    totalQuantity: ingredientArray[9].totalQuantity
-  };
 
-  ingredientModel.addIngredient(ing1, function(err, result) {
+
+  ingredientModel.add(ing1, function(err, result) {
     if (err) throw err;
     console.log(result);
   })
 
-  ingredientModel.addIngredient(ing2, function(err, result) {
-    if (err) throw err;
-    console.log(result);
-  })
-  
-  ingredientModel.addIngredient(ing3, function(err, result) {
-    if (err) throw err;
-    console.log(result);
-  })
 
-  ingredientModel.addIngredient(ing4, function(err, result) {
-    if (err) throw err;
-    console.log(result);
-  })
-
-  ingredientModel.addIngredient(ing5, function(err, result) {
-    if (err) throw err;
-    console.log(result);
-  })
-
-  ingredientModel.addIngredient(ing6, function(err, result) {
-    if (err) throw err;
-    console.log(result);
-  })
-
-  ingredientModel.addIngredient(ing7, function(err, result) {
-    if (err) throw err;
-    console.log(result);
-  })
-
-  ingredientModel.addIngredient(ing8, function(err, result) {
-    if (err) throw err;
-    console.log(result);
-  })
 }
