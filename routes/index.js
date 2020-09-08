@@ -61,8 +61,11 @@ router.get('/products/add', (req, res) => {
 router.get('/supplies', (req, res) => {
   console.log("Read supplies successful!");
 
-  supplyCon
-  res.render('supplies');
+  supplyController.getAllSupplies(req, (supplies) => {
+    res.render('supplies', {
+      supply: supplies,
+    });
+  })
 });
 
 // Get add supply page
@@ -86,9 +89,8 @@ router.get('/ingredients', (req, res) => {
   console.log("Read ingredients successful!");
 
   ingredientController.getAllIngredients(req, (ingredients) => {
-    console.log(ingredients);
     res.render('ingredients',{
-      ingName: ingredients,
+      ingredient: ingredients,
     });
   })
 });

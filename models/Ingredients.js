@@ -28,10 +28,3 @@ exports.getOne = function(query, next) {
     next(err, ingredient);
   });
 };
-
-// Get ingredient names
-exports.getName = function(query, next) {
-  Ingredient.find(query, function(err, ingredients){
-    next(err, ingredients);
-  });
-};

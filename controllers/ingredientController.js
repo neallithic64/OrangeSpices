@@ -56,20 +56,3 @@ exports.addIngredient = (req, res) => {
     res.redirect('/ingredients/add');
   }
 }; 
-
-//Getting all ingredient name
-exports.getIngredientName = (ingredientName, callback) =>{
-  ingredientModel.getName({ ingredientName }, (err, ingredients) => {
-    console.log("ingredients");
-    console.log(ingredients);
-    if (err) throw err;
-      
-    const ingredientsObjects = [];
-      
-    ingredients.forEach(function(doc) {
-      ingredientsObjects.push(doc.toObject());
-    });
-      
-    callback(ingredientsObjects);
-  });
-};
