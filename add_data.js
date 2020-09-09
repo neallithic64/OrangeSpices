@@ -8,29 +8,13 @@ var userArray = [
   {
     username: 'admin',
     password: 'admin',
-    userType: 'admin'
+    userType: 'Admin'
   },
   {
     username: 'staff',
     password: 'orange&spices',
-    userType: 'staff'
+    userType: 'Staff'
   }
-];
-
-// Ingredients
-var ingredientArray = [
-  {
-    ingredientName: 'Chicken',
-    totalQuantity: 5
-  },
-  {
-    ingredientName: 'Pork',
-    totalQuantity: 7
-  },
-  {
-    ingredientName: 'Beef',
-    totalQuantity: 10
-  },
 ];
 
 // Units
@@ -55,42 +39,26 @@ var unitArray = [
   },
 ];
 
-populate1(); // users and sample ingredients
-populate2(); // users and sample ingredients
-populate3(); // units
-populate4(); // more ingredients sample
+populate1(); // users
+populate2(); // units
 
 function populate1(){
   const saltRounds = 10;
-  const user = {
+  const user1 = {
     username: userArray[0].username,
     password: userArray[0].password,
     userType: userArray[0].userType
   };
 
   bcrypt.hash(userArray[0].password, saltRounds, (err, hashed) => {
-    user.password = hashed;
-    userModel.create(user, function (err, result) {
+    user1.password = hashed;
+    userModel.create(user1, function (err, result) {
       if (err) throw err;
       console.log(result);
     });
   });
 
-  const ingredient = {
-    ingredientName: ingredientArray[0].ingredientName,
-    totalQuantity: ingredientArray[0].totalQuantity
-
-  };
-
-  ingredientModel.add(ingredient, function(err, result) {
-    if (err) throw err;
-    console.log(result);
-  })
-}
-
-function populate2(){
-  const saltRounds = 10;
-  const user = {
+  const user2 = {
     email: userArray[1].email,
     username: userArray[1].username,
     password: userArray[1].password,
@@ -98,25 +66,15 @@ function populate2(){
   };
 
   bcrypt.hash(userArray[1].password, saltRounds, (err, hashed) => {
-    user.password = hashed;
-    userModel.create(user, function (err, result) {
+    user2.password = hashed;
+    userModel.create(user2, function (err, result) {
       if (err) throw err;
       console.log(result);
     });
   });
-
-  const ingredient = {
-    ingredientName: ingredientArray[1].ingredientName,
-    totalQuantity: ingredientArray[1].totalQuantity
-  };
-
-  ingredientModel.add(ingredient, function(err, result) {
-    if (err) throw err;
-    console.log(result);
-  })
 }
 
-function populate3(){
+function populate2(){
   const unit1 = {
     unitName: unitArray[0].unitName
   };
@@ -129,11 +87,9 @@ function populate3(){
   const unit4 = {
     unitName: unitArray[3].unitName
   };
-
   const unit5 = {
     unitName: unitArray[4].unitName
   };
-
   const unit6 = {
     unitName: unitArray[5].unitName
   };
@@ -154,29 +110,12 @@ function populate3(){
     if (err) throw err;
     console.log(result);
   })
-
   unitModel.addUnit(unit5, function(err, result) {
     if (err) throw err;
     console.log(result);
   })
-
   unitModel.addUnit(unit6, function(err, result) {
     if (err) throw err;
     console.log(result);
   })
-}
-
-function populate4(){
-  const ing1 = {
-    ingredientName: ingredientArray[2].ingredientName,
-    totalQuantity: ingredientArray[2].totalQuantity
-  };
-
-
-  ingredientModel.add(ing1, function(err, result) {
-    if (err) throw err;
-    console.log(result);
-  })
-
-
 }

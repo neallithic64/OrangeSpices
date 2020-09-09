@@ -1,12 +1,9 @@
 const mongoose = require('./connection');
 
 const supplySchema = new mongoose.Schema({
-    brandName: { type: String, required: true, min:5},
-    supplyName: { type: String, required: true, min:5},
-    totalSupply: { type: Number, required: true},
-    unitQuantity: { type: Number, required: true},
-    ingredientID: { type: mongoose.Schema.Types.ObjectId, ref: 'ingredient', required: false}, //set to true afterwards!!
-    unitID: { type: mongoose.Schema.Types.ObjectId, ref: 'unit', required: false}, //set to true afterwards!!
+  brandName: { type: String, required: true, min:5},
+  totalSupply: { type: Number, required: true, default: 0.00},
+  ingredientID: { type: mongoose.Schema.Types.ObjectId, ref: 'ingredient', required: true}, //set to true afterwards!!
 });
 
 const Supplies = mongoose.model('supply', supplySchema);
@@ -21,10 +18,10 @@ exports.add = function(obj, next) {
   
 // Get all supplies
 exports.getAll = (param, next) => {
-  Supplies.find({}).populate('unitID ingredientID').exec((err, supplies) => next(err, supplies));
+  Supplies.find({}).populate({path: 'ingredientID', populate: {path: 'unitID'}}).exec((err, supplies) => next(err, supplies));
 };
 
-// Fine supply
+// Find supply
 exports.getOne = function(query, next) {
   Supplies.findOne(query, function(err, supply) {
     next(err, supply);

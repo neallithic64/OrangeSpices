@@ -46,7 +46,6 @@ router.get('/products', (req, res) => {
 // Get create products page
 router.get('/products/add', (req, res) => {
   console.log("Read add product successful!");
-
   ingredientController.getAllIngredients(req, (ingredients) => {
     unitController.getAllUnits(req, (units) => {
       res.render('addProduct',{
@@ -60,7 +59,6 @@ router.get('/products/add', (req, res) => {
 // Get inventory [supplies] page
 router.get('/supplies', (req, res) => {
   console.log("Read supplies successful!");
-
   supplyController.getAllSupplies(req, (supplies) => {
     res.render('supplies', {
       supply: supplies,
@@ -71,16 +69,10 @@ router.get('/supplies', (req, res) => {
 // Get add supply page
 router.get('/supplies/add', (req, res) => {
   console.log("Read add supply successful!");
-
-  unitController.getAllUnits(req, (units) => {
-    ingredientController.getIngredientName(req, (ingredients) => {
-      //console.log("ingredients:");
-      //console.log(ingredients);
-      res.render('addSupply',{
-        ingName: ingredients,
-        unit: units,
-      });
-    })
+  ingredientController.getIngredientName(req, (ingredients) => {
+    res.render('addSupply',{
+      ingName: ingredients,
+    });
   })
 });
 
@@ -112,6 +104,18 @@ router.get('/procurement', (req, res) => {
   res.render('procurement');
 });
 
+// Get add purchase page
+/*
+router.get('/purchase/add', (req, res) => {
+  console.log("Read add purchase successful!");
+
+  unitController.getAllUnits(req, (units) => {
+    res.render('addPurchase',{
+      unit: units,
+    });
+  })
+});
+*/
 // Get accounting page
 router.get('/accounting', (req, res) => {
   console.log("Read accounting successful!");
@@ -123,6 +127,7 @@ router.get('/logout', userController.logoutUser);
 
 // POST methods for form submissions
 router.post('/login', loginValidation, userController.loginUser);
+router.post('/supplies/add', supplyController.addSupply);
 router.post('/ingredients/add', ingredientController.addIngredient);
 router.post('/products/add', productController.addProduct);
 

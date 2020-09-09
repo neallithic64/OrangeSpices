@@ -1,5 +1,4 @@
 const ingredientModel = require('../models/Ingredients');
-const unitModel = require('../models/Unit');
 const { validationResult } = require('express-validator');
 
 //Getting all ingredients
@@ -56,3 +55,17 @@ exports.addIngredient = (req, res) => {
     res.redirect('/ingredients/add');
   }
 }; 
+
+exports.getIngredientName = (param, callback) => {
+  ingredientModel.getName({ingredientName: true}, (err, ingredients) => {
+    if (err) throw err;
+      
+    const ingredientsObjects = [];
+      
+    ingredients.forEach(function(doc) {
+      ingredientsObjects.push(doc.toObject());
+    });
+      
+    callback(ingredientsObjects);
+  });
+};

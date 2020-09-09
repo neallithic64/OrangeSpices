@@ -28,3 +28,10 @@ exports.getOne = function(query, next) {
     next(err, ingredient);
   });
 };
+
+// Get ingredient names
+exports.getName = function(req, next) {
+  Ingredient.find({}, {ingredientName: 1, _id:1}, function(err, ingredient) { 
+    next(err, ingredient); 
+  });
+};

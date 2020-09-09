@@ -11,7 +11,7 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#">Point of Sale</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/products">Products</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/ingredients">Inventory</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/supplies">Inventory</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" 
                         style="background-color: #c64327 !important; color: #ffffff !important; padding-left: 16px !important; height: 36px !important;" href="/supplies">Supplies</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" 
@@ -26,9 +26,9 @@
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="title"><span class="text-primary m-0 font-weight-bold">Add Supply</span></div>
-                    <form action="/supplies/add" method="POST"></form>
+                    <form action="/supplies/add" method="POST">
                     <div class="buttons">
-                        <button type="button" class="btn btn-primary btn-sm add-btn">Save</button>
+                        <button type="submit" class="btn btn-primary btn-sm add-btn">Save</button>
                         <a href="/supplies"><button type="button" class="btn btn-primary btn-sm can-btn">Cancel</button></a>
                     </div>            
                 </nav>    
@@ -36,14 +36,15 @@
                 <div class="card shadow mb-3">  
                     <div class="form-container" style="padding: 20px;">
                         <div class="col-5">
+                            <div class="messages2">{{> messages}}</div>
                             <label for="supplyBrand" style="font-weight: bold;">Brand</label>
                             <input type="text" class="form-control" placeholder="Enter brand name..." name="supplyBrand">
                             <p id="supplyBrandError" class="error"></p>
                         </div>
                         <div class="col-4">
-                            <label for="ingName" style="font-weight: bold;">Name (Ingredient)</label>
-                            <select class="form-control" name="ingName">
-                                <option>Select ingredient name...</option>
+                            <label for="ingName" style="font-weight: bold;">Ingredient Name</label>
+                            <select class="form-control" name="ingredient">
+                                <option id="ingredient">Select ingredient name...</option>
                                 {{>ingredientName}}
                             </select>
                             <p id="ingNameError" class="error"></p>
@@ -56,12 +57,6 @@
                         <div class="row">
                             <div class="col-3">
                                 <input type="number" class="form-control" id="quantity" placeholder="Quantity">
-                            </div>
-                            <div class="col-2">
-                                <select class="form-control">
-                                    <option id="unit">Select unit...</option>
-                                    {{>units}}
-                                </select>
                             </div>
                             </form>
                         </div>                             
