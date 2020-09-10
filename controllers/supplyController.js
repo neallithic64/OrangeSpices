@@ -55,3 +55,17 @@ exports.addSupply = (req, res) => {
     res.redirect('/supplies/add');
   }
 }; 
+
+exports.getSupplyName = (param, callback) => {
+  supplyModel.getName({brandName: true}, (err, supplies) => {
+    if (err) throw err;
+      
+    const supplyObjects = [];
+      
+    supplies.forEach(function(doc) {
+      supplyObjects.push(doc.toObject());
+    });
+      
+    callback(supplyObjects);
+  });
+};

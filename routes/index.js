@@ -3,8 +3,9 @@ const userController = require('../controllers/userController');
 const ingredientController = require('../controllers/ingredientController');
 const unitController = require('../controllers/unitController');
 const supplyController = require('../controllers/supplyController');
+const purchaseController = require('../controllers/purchaseController');
 const productController = require('../controllers/productController');
-const { loginValidation, addSupplyValidation } = require('../validators.js');
+const { loginValidation, addSupplyValidation, addIngredientValidation, addPurchaseValidation } = require('../validators.js');
 const { loggedIn, loggedOut } = require('../middlewares/checkAuth');
 
 router.get('/', (req, res) => {
@@ -197,50 +198,51 @@ router.get('/ingredients/add', loggedIn, (req, res) => {
 // Get procurement page
 router.get('/procurement', loggedIn, (req, res) => {
   console.log("Read procurement successful!");
-  userController.getID(req.session.user, (user) => {
-    if(req.session.username == "admin"){
-      res.render('procurement', { 
-        isAdmin: true,
-        username: req.session.username, 
-        _id: req.session.user,
-      })
-    }
-    else {
-      res.render('procurement', { 
-        isAdmin: false, 
-        username: req.session.username,
-        _id: req.session.user,
-      })
-    }
+  purchaseController.getAllPurchase(req, (purchase) => {
+    userController.getID(req.session.user, (user) => {
+      if(req.session.username == "admin"){
+        res.render('procurement', { 
+          isAdmin: true,
+          username: req.session.username, 
+          _id: req.session.user,
+          purchase: purchase
+        })
+      }
+      else {
+        res.render('procurement', { 
+          isAdmin: false, 
+          username: req.session.username,
+          _id: req.session.user,
+          purchase: purchase
+        })
+      }
+    })
   })
 });
 
 // Get add purchase page
 router.get('/purchase/add', (req, res) => {
   console.log("Read add purchase successful!");
-  userController.getID(req.session.user, (user) => {
-    if(req.session.username == "admin"){
-      res.render('addPurchase', { 
-        isAdmin: true,
-        username: req.session.username, 
-        _id: req.session.user,
-      })
-    }
-    else {
-      res.render('addPurchase', { 
-        isAdmin: false, 
-        username: req.session.username,
-        _id: req.session.user,
-      })
-    }
+  supplyController.getSupplyName(req, (supplies) => {
+    userController.getID(req.session.user, (user) => {
+      if(req.session.username == "admin"){
+        res.render('addPurchase', { 
+          isAdmin: true,
+          username: req.session.username, 
+          _id: req.session.user,
+          supplyName: supplies
+        })
+      }
+      else {
+        res.render('addPurchase', { 
+          isAdmin: false, 
+          username: req.session.username,
+          _id: req.session.user,
+          supplyName: supplies
+        })
+      }
+    })
   })
-  /*
-  unitController.getAllUnits(req, (units) => {
-    res.render('addPurchase',{
-      unit: units,
-    });
-  })
-  */
 });
 
 // Get accounting page
@@ -270,7 +272,8 @@ router.get('/logout', loggedIn, userController.logoutUser);
 // POST methods for form submissions
 router.post('/login', loggedOut, loginValidation, userController.loginUser);
 router.post('/supplies/add', loggedIn, addSupplyValidation, supplyController.addSupply);
-router.post('/ingredients/add', loggedIn, ingredientController.addIngredient);
+router.post('/ingredients/add', loggedIn, addIngredientValidation, ingredientController.addIngredient);
+router.post('/purchase/add', loggedIn, addPurchaseValidation, purchaseController.addPurchase);
 router.post('/products/add', loggedIn, productController.addProduct);
 
 module.exports = router;

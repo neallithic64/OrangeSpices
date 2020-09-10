@@ -14,4 +14,13 @@ const addSupplyValidation = [
   body('unitQty').not().isEmpty().withMessage("Please enter unit quantity."),
 ]
 
-module.exports = { loginValidation, addSupplyValidation };
+const addIngredientValidation = [
+  // Ingredient name should not be empty
+  body('ingredientName').not().isEmpty().withMessage("Please enter ingredient name."),
+]
+
+const addPurchaseValidation = [
+
+]
+
+module.exports = { loginValidation, addSupplyValidation, addIngredientValidation, addPurchaseValidation };

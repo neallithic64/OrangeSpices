@@ -1,0 +1,10 @@
+{{#each purchase}}
+    <tr>
+        <td>{{supplyID.brandName}}</td>
+        <td>{{formattingDate purchaseDate}}</td>
+        <td>{{formattingDate expiryDate}}</td>
+        <td>{{purchaseQty}}</td>
+        <td>₱{{purchasePrice}}</td>
+        <td>₱{{totalPrice}}</td>
+    </tr>
+{{/each}}
