@@ -10,8 +10,8 @@ const loginValidation = [
 const addSupplyValidation = [
   // Brand should not be empty
   body('supplyBrand').not().isEmpty().withMessage("Please enter brand."),
-  // Ingredient should not be empty
-  body('ingredient').not().isEmpty().withMessage("Please select ingredient.")
+  // Unit quantity should not be empty
+  body('unitQty').not().isEmpty().withMessage("Please enter unit quantity."),
 ]
 
 module.exports = { loginValidation, addSupplyValidation };

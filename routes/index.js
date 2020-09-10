@@ -216,17 +216,33 @@ router.get('/procurement', loggedIn, (req, res) => {
 });
 
 // Get add purchase page
-/*
 router.get('/purchase/add', (req, res) => {
   console.log("Read add purchase successful!");
-
+  userController.getID(req.session.user, (user) => {
+    if(req.session.username == "admin"){
+      res.render('addPurchase', { 
+        isAdmin: true,
+        username: req.session.username, 
+        _id: req.session.user,
+      })
+    }
+    else {
+      res.render('addPurchase', { 
+        isAdmin: false, 
+        username: req.session.username,
+        _id: req.session.user,
+      })
+    }
+  })
+  /*
   unitController.getAllUnits(req, (units) => {
     res.render('addPurchase',{
       unit: units,
     });
   })
+  */
 });
-*/
+
 // Get accounting page
 router.get('/accounting', loggedIn, (req, res) => {
   console.log("Read accounting successful!");

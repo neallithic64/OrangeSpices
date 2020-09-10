@@ -51,23 +51,18 @@
                         </div>
                         <div class="col-4">
                             <label for="ingName" style="font-weight: bold;">Ingredient Name</label>
-                            <select class="form-control" name="ingredient">
-                                <option id="ingredient">Select ingredient name...</option>
+                            <select class="form-control" name="ingredientName">
+                                <option id="ingredientName">Select ingredient name...</option>
                                 {{>ingredientName}}
                             </select>
                             <p id="ingNameError" class="error"></p>
                         </div>
                         <div class="col-4">
-                            <label for="prodPrice" style="font-weight: bold;">Price</label>
-                            <input type="number" class="form-control" placeholder="Enter product price..." name="prodPrice">
+                            <label for="unitQty" style="font-weight: bold;">Unit Quantity</label>
+                            <input type="number" class="form-control" placeholder="Enter unit quantity... (ex. 250)" name="unitQty">
                             <p id="prodPriceError" class="error"></p>
                         </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <input type="number" class="form-control" id="quantity" placeholder="Quantity">
-                            </div>
-                            </form>
-                        </div>                             
+                        </form>                       
                     </div>
                 </div>
             </div>

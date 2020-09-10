@@ -21,20 +21,21 @@ exports.addSupply = (req, res) => {
   const errors = validationResult(req);
   if (errors.isEmpty())
   {
-    const { supplyBrand, ingredient } = req.body;
-
+    const { supplyBrand, ingredientName, unitQty } = req.body;
     supplyModel.getOne({ brandName: {$regex: supplyBrand, $options:'i'}}, (err, result) => {
       if (result) {
 				req.flash('error_msg', 'Already have that supply. Try again.');
 				res.redirect('/supplies/add');
+      } else if(ingredientName == "Select ingredient name..."){
+        req.flash('error_msg', 'Please select ingredient name.');
+        res.redirect('/supplies/add');
       } else {
-        if(supplyBrand != ""){
-          var supply = {
-            brandName: supplyBrand,
-            ingredientID: ingredient,
-          }
+        var supply = {
+          brandName: supplyBrand,
+          ingredientID: ingredientName,
+          unitQuantity: unitQty
         }
-            
+         
         supplyModel.add(supply, function(err, result){
           if(err){
             console.log(err);
