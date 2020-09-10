@@ -21,15 +21,22 @@ router.get('/login', loggedOut, (req, res) => {
 router.get('/POS', loggedIn, (req, res) => {
   console.log("Read POS successful!");
 
-  var owner; 
   userController.getID(req.session.user, (user) => {
-    owner = user;
-    res.render('POS', { 
-      userType: req.session.username, 
-      //dp: owner.dp,
-      _id: req.session.user
-    })
-  });
+    if(req.session.username == "admin"){
+      res.render('POS', { 
+        userType: true,
+        username: req.session.username, 
+        _id: req.session.user
+      })
+    }
+    else {
+      res.render('POS', { 
+        userType: false, 
+        username: req.session.username,
+        _id: req.session.user
+      })
+    }
+  })
 });
 
 
@@ -37,21 +44,53 @@ router.get('/POS', loggedIn, (req, res) => {
 router.get('/products', loggedIn, (req, res) => {
   console.log("Read products successful!");
   productController.getAllProducts(req, (products) => {
-    res.render('products',{
-      product: products,
-    });
+    userController.getID(req.session.user, (user) => {
+      if(req.session.username == "admin"){
+        res.render('products', { 
+          userType: true,
+          username: req.session.username, 
+          _id: req.session.user,
+          product: products,
+        })
+      }
+      else {
+        res.render('products', { 
+          userType: false, 
+          username: req.session.username,
+          _id: req.session.user,
+          product: products,
+        })
+      }
+    })
   })
 });
 
 // Get create products page
 router.get('/products/add', loggedIn, (req, res) => {
   console.log("Read add product successful!");
+
   ingredientController.getAllIngredients(req, (ingredients) => {
     unitController.getAllUnits(req, (units) => {
-      res.render('addProduct',{
-        unit: units,
-        ingName: ingredients,
-      });
+      userController.getID(req.session.user, (user) => {
+        if(req.session.username == "admin"){
+          res.render('addProduct', { 
+            userType: true,
+            username: req.session.username, 
+            _id: req.session.user,
+            unit: units,
+            ingName: ingredients,
+          })
+        }
+        else {
+          res.render('addProduct', { 
+            userType: false, 
+            username: req.session.username,
+            _id: req.session.user,
+            unit: units,
+            ingName: ingredients,
+          })
+        }
+      })
     })
   })
 });
@@ -60,9 +99,24 @@ router.get('/products/add', loggedIn, (req, res) => {
 router.get('/supplies', loggedIn, (req, res) => {
   console.log("Read supplies successful!");
   supplyController.getAllSupplies(req, (supplies) => {
-    res.render('supplies', {
-      supply: supplies,
-    });
+    userController.getID(req.session.user, (user) => {
+      if(req.session.username == "admin"){
+        res.render('supplies', { 
+          userType: true,
+          username: req.session.username, 
+          _id: req.session.user,
+          supply: supplies,
+        })
+      }
+      else {
+        res.render('supplies', { 
+          userType: false, 
+          username: req.session.username,
+          _id: req.session.user,
+          supply: supplies,
+        })
+      }
+    })
   })
 });
 
@@ -81,9 +135,24 @@ router.get('/ingredients', loggedIn, (req, res) => {
   console.log("Read ingredients successful!");
 
   ingredientController.getAllIngredients(req, (ingredients) => {
-    res.render('ingredients',{
-      ingredient: ingredients,
-    });
+    userController.getID(req.session.user, (user) => {
+      if(req.session.username == "admin"){
+        res.render('ingredients', { 
+          userType: true,
+          username: req.session.username, 
+          _id: req.session.user,
+          ingredient: ingredients,
+        })
+      }
+      else {
+        res.render('ingredients', { 
+          userType: false, 
+          username: req.session.username,
+          _id: req.session.user,
+          ingredient: ingredients,
+        })
+      }
+    })    
   })
 });
 
@@ -101,7 +170,22 @@ router.get('/ingredients/add', loggedIn, (req, res) => {
 // Get procurement page
 router.get('/procurement', loggedIn, (req, res) => {
   console.log("Read procurement successful!");
-  res.render('procurement');
+  userController.getID(req.session.user, (user) => {
+    if(req.session.username == "admin"){
+      res.render('procurement', { 
+        userType: true,
+        username: req.session.username, 
+        _id: req.session.user,
+      })
+    }
+    else {
+      res.render('procurement', { 
+        userType: false, 
+        username: req.session.username,
+        _id: req.session.user,
+      })
+    }
+  })
 });
 
 // Get add purchase page
@@ -119,7 +203,22 @@ router.get('/purchase/add', (req, res) => {
 // Get accounting page
 router.get('/accounting', loggedIn, (req, res) => {
   console.log("Read accounting successful!");
-  res.render('accounting');
+  userController.getID(req.session.user, (user) => {
+    if(req.session.username == "admin"){
+      res.render('accounting', { 
+        userType: true,
+        username: req.session.username, 
+        _id: req.session.user,
+      })
+    }
+    else {
+      res.render('accounting', { 
+        userType: false, 
+        username: req.session.username,
+        _id: req.session.user,
+      })
+    }
+  })
 });
 
 // Logout
