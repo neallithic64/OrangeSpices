@@ -28,3 +28,10 @@ exports.getOne = function(query, next) {
     next(err, supply);
   });
 };
+
+// Get supply names
+exports.getName = function(req, next) {
+  Supplies.find({}, {brandName: 1, _id:1}, function(err, supply) { 
+    next(err, supply); 
+  });
+};

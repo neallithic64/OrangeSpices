@@ -38,12 +38,18 @@ app.listen(port, function() {
   console.log(`Server running at http://${hostname}:${port}/`); 
 });
 
-app.engine('hbs', exphbs({
-  extname: 'hbs', 
-  defaultView: 'main',
+app.engine('hbs', exphbs.create({
+  extname: 'hbs',
+  helpers: {
+    formattingDate: function(string){
+      let date = new Date(string)
+      return (date.getMonth()+1) + '/' + date.getDate() + '/' + date.getFullYear();
+    } 
+  },
+  defaultLayout: 'main',
   layoutsDir: path.join(__dirname, '/views/layouts'), 
   partialsDir: path.join(__dirname, '/views/partials'),
-}));
+}).engine);
 
 app.set('view engine', 'hbs');
 

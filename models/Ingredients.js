@@ -3,7 +3,7 @@ const mongoose = require('./connection');
 const ingredientSchema = new mongoose.Schema({
   ingredientName: { type: String, required: true, min:5},
   totalQuantity: { type: Number, required: false, default: 0},
-  unitID: { type: mongoose.Schema.Types.ObjectId, ref: 'unit', required: false}, //set to true afterwards!!
+  unitID: { type: mongoose.Schema.Types.ObjectId, ref: 'unit', required: true}, 
   avgCost: { type: Number, required: false, default: 0.00},
 });
 

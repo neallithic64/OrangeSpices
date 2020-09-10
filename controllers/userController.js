@@ -37,11 +37,11 @@ exports.loginUser = (req, res) => {
         }
       });
     } else {
-      const messages = errors.array().map((item) => item.msg);
-      req.flash('error_msg', messages.join(' '));
-      res.redirect('/login');
-    }
-  };
+    const messages = errors.array().map((item) => item.msg);
+    req.flash('error_msg', messages.join(' '));
+    res.redirect('/login');
+  }
+};
   
 // Logout
 exports.logoutUser = (req, res) => {

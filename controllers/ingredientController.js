@@ -27,12 +27,13 @@ exports.addIngredient = (req, res) => {
       if (result) {
 				req.flash('error_msg', 'Already have that ingredient. Try again.');
 				res.redirect('/ingredients/add');
+      } else if (unit == "Select unit..."){
+        req.flash('error_msg', 'Please select unit.');
+        res.redirect('/ingredients/add');
       } else {
-        if(ingredientName && unit){
-          var ingredient = {
-            ingredientName: ingredientName,
-            unitID: unit,
-          }
+        var ingredient = {
+          ingredientName: ingredientName,
+          unitID: unit,
         }
 
         ingredientModel.add(ingredient, function(err, result){
