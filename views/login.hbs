@@ -1,0 +1,19 @@
+<title>Login</title>
+<body>
+    <div class="login-clean">
+        <form method="post" action="/login">
+            <h2 class="sr-only">Login Form</h2>
+            <div class="col-4 logo-img"><img src="../public/img/logo.png" width="150"></div>
+            <div class="messages1">{{> messages}}</div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</body>

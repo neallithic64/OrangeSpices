@@ -1,0 +1,34 @@
+{
+  "name": "orangespices",
+  "version": "1.0.0",
+  "description": "1. Clone this repository: `git clone https://github.com/deasisjhose/OrangeSpices`\r 2. Navigate to the directory\r 3. Install the dependencies: `npm install`\r 4. First, run `node add_data.js` to add data manually.\r 5. Stop the server using CTRL+C (Windows) or control (^) + C (Mac).\r 6. Then, run the server: `node app.js`\r     * Navigate to `http://localhost:3000/` in the browser to view the app.",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "bson": "^4.1.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.1",
+    "mongodb": "^3.6.1",
+    "mongoose": "^5.10.3",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deasisjhose/OrangeSpices.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deasisjhose/OrangeSpices/issues"
+  },
+  "homepage": "https://github.com/deasisjhose/OrangeSpices#readme"
+}

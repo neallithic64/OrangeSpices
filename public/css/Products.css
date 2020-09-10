@@ -1,0 +1,148 @@
+.bg-gradient-primary {
+    background-color: #ffffff !important;
+    background-image: linear-gradient(180deg,#ffffff 50%,#ffffff) !important;
+    background-size: cover !important;
+  }
+  
+  .sidebar {
+      max-width: 20% !important;
+    }
+      
+  .sidebar-dark .sidebar-brand {
+      font-family: 'Quicksand' !important;
+      font-size: 18px !important;
+      font-weight: bold !important;
+      width: auto !important;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+      color: #c64327 !important;
+      font-weight: bold;
+      padding: 8px !important;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link:hover {
+      background-color: #c64327 !important;
+      color: #ffffff !important;
+  }
+  
+  .text-primary{
+      color: #c64327 !important;
+      font-size: 20px !important;
+  }
+  
+  .container, .pt-4{
+      padding-bottom: 1.5rem;
+  }
+  
+.add-btn{
+      background-color: #80C376 !important;
+      border: 2px solid #80C376 !important;
+      border-radius: .5rem !important;
+      font-size: 15px !important; 
+  }
+
+.ord-btn{
+    background-color: #f47639 !important;
+    border: 2px solid #f47639 !important;
+    border-radius: .5rem !important;
+    font-size: 15px !important; 
+}
+
+.can-btn{
+    background-color: #c64327 !important;
+    border: 2px solid #c64327 !important;
+    border-radius: .5rem !important;
+    font-size: 15px !important; 
+}
+
+.low-btn{
+    background-color: #f47639 !important;
+    border: 2px solid #f47639 !important;
+    border-radius: .5rem !important;
+    font-size: 15px !important; 
+}
+
+div .low-stock{
+    display: inline-block !important;
+}
+
+.buttons{
+    text-align: right !important; 
+    width: 100% !important;
+  }
+
+  .add{
+    text-align: right !important; 
+    width: 100% !important;
+  }
+
+  .table td{
+    vertical-align: baseline !important;
+  }
+
+  #wrapper #content-wrapper{
+    overflow-x: visible !important;
+  }
+
+  .row{
+      margin: 0px !important;
+  }
+
+  .title{
+      width: 300px;
+  }
+  
+  .list-group{
+      text-align: center !important;
+  }
+  
+  .list-group-item{
+      font-size: 12px !important;
+      height: 25px !important;
+  }
+  
+  div .col-6{
+      float: left;
+  }
+  
+  .navbar-search{
+      width: 47% !important;
+  }
+  
+  .navbar-brand{
+      padding-top: 10px !important;
+  }
+  
+  footer{
+      height: 50px !important;
+  }
+  
+  .numresults{
+      color: #aaaaaa !important;
+  }
+
+  .dropdown .low-stock {
+        min-width: 250px !important;
+        width: 250px !important;
+  }
+
+  .compare-inv{
+        width: 200 !important;
+        display: inline-block;
+        height: calc(1.5em + .75rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #6e707e;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #d1d3e2;
+        border-radius: .35rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+
+  .shortonli{
+      width: 210px !important;
+  }

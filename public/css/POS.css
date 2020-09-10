@@ -1,0 +1,118 @@
+.bg-gradient-primary {
+  background-color: #ffffff !important;
+  background-image: linear-gradient(180deg,#ffffff 50%,#ffffff) !important;
+  background-size: cover !important;
+}
+
+.sidebar {
+    max-width: 20% !important;
+  }
+    
+.sidebar-dark .sidebar-brand {
+    
+    font-family: 'Quicksand' !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    width: auto !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #c64327 !important;
+    font-weight: bold;
+    padding: 8px !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    background-color: #c64327 !important;
+    color: #ffffff !important;
+}
+
+.products {
+    background: url("assets/img/chicken.png") no-repeat;
+    width: 15px; 
+    margin-right: 5px !important;
+}
+
+.products:hover {
+    background: url("assets/img/chickenhover.png") no-repeat !important;
+    width: 15px; 
+    margin-right: 5px !important;
+}
+
+.table{
+    font-size: 12px !important;
+}
+
+.text-primary{
+    color: #c64327 !important;
+}
+
+.container, .pt-4{
+    padding-bottom: 1.5rem;
+}
+
+.btn-primary{
+    background-color: #f47639 !important;
+    border: 2px solid #f47639 !important;
+    font-size: 10px !important;
+    float: right !important;
+}
+
+.prod-btn{
+    background-color: #f47639 !important;
+    border: 2px solid #f47639 !important;
+    font-size: 10px !important;
+    float: right !important;
+}
+
+.list-group{
+    text-align: center !important;
+}
+
+.list-group-item{
+    font-size: 12px !important;
+    height: 25px !important;
+}
+
+div .col-6{
+    float: left;
+}
+
+.navbar-search{
+    width: 47% !important;
+}
+
+.form-control-sm{
+    font-size: .85rem !important;
+    width: 65% !important;
+}
+
+.navbar-brand{
+    padding-top: 10px !important;
+}
+
+footer{
+    height: 50px !important;
+}
+
+.numresults{
+    color: #aaaaaa !important;
+}
+
+.total{
+    font-weight: bold !important;
+}
+
+.bigto{
+    font-size: 20px !important;
+}
+
+.leftdiz{
+    text-align: left !important;
+    padding-left: 18px !important;
+}
+
+.rightdiz{
+    text-align: right !important;
+    padding-right: 18px !important;
+}
