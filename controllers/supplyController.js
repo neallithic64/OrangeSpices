@@ -28,14 +28,13 @@ exports.addSupply = (req, res) => {
 				req.flash('error_msg', 'Already have that supply. Try again.');
 				res.redirect('/supplies/add');
       } else {
-        if( supplyBrand != ""){
+        if(supplyBrand != ""){
           var supply = {
             brandName: supplyBrand,
             ingredientID: ingredient,
           }
         }
             
-
         supplyModel.add(supply, function(err, result){
           if(err){
             console.log(err);

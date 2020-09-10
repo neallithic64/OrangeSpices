@@ -5,36 +5,36 @@ const unitController = require('../controllers/unitController');
 const supplyController = require('../controllers/supplyController');
 const productController = require('../controllers/productController');
 const { loginValidation } = require('../validators.js');
+const { loggedIn, loggedOut } = require('../middlewares/checkAuth');
 
 router.get('/', (req, res) => {
   res.redirect('/login');
 });
 
 // Get login page
-router.get('/login', (req, res) => {
+router.get('/login', loggedOut, (req, res) => {
   console.log("Read login successful!");
   res.render('login');
 });
 
-// Get category page [admin]
-router.get('/category/admin', (req, res) => {
-  console.log("Read category (admin) successful!");
-  res.render('categoryAdmin',{
-    username: req.session.username
+// Get POS [landing] page
+router.get('/POS', loggedIn, (req, res) => {
+  console.log("Read POS successful!");
+
+  var owner; 
+  userController.getID(req.session.user, (user) => {
+    owner = user;
+    res.render('POS', { 
+      userType: req.session.username, 
+      //dp: owner.dp,
+      _id: req.session.user
+    })
   });
 });
 
-// Get POS [landing] page
-/*
-router.get('/POS', (req, res) => {
-  console.log("Read POS successful!");
-
-  res.render('ingredients');
-});
-*/
 
 // Get products page
-router.get('/products', (req, res) => {
+router.get('/products', loggedIn, (req, res) => {
   console.log("Read products successful!");
   productController.getAllProducts(req, (products) => {
     res.render('products',{
@@ -44,7 +44,7 @@ router.get('/products', (req, res) => {
 });
 
 // Get create products page
-router.get('/products/add', (req, res) => {
+router.get('/products/add', loggedIn, (req, res) => {
   console.log("Read add product successful!");
   ingredientController.getAllIngredients(req, (ingredients) => {
     unitController.getAllUnits(req, (units) => {
@@ -57,7 +57,7 @@ router.get('/products/add', (req, res) => {
 });
 
 // Get inventory [supplies] page
-router.get('/supplies', (req, res) => {
+router.get('/supplies', loggedIn, (req, res) => {
   console.log("Read supplies successful!");
   supplyController.getAllSupplies(req, (supplies) => {
     res.render('supplies', {
@@ -67,7 +67,7 @@ router.get('/supplies', (req, res) => {
 });
 
 // Get add supply page
-router.get('/supplies/add', (req, res) => {
+router.get('/supplies/add', loggedIn, (req, res) => {
   console.log("Read add supply successful!");
   ingredientController.getIngredientName(req, (ingredients) => {
     res.render('addSupply',{
@@ -77,7 +77,7 @@ router.get('/supplies/add', (req, res) => {
 });
 
 // Get inventory [ingredients] page
-router.get('/ingredients', (req, res) => {
+router.get('/ingredients', loggedIn, (req, res) => {
   console.log("Read ingredients successful!");
 
   ingredientController.getAllIngredients(req, (ingredients) => {
@@ -88,7 +88,7 @@ router.get('/ingredients', (req, res) => {
 });
 
 // Get add ingredient page
-router.get('/ingredients/add', (req, res) => {
+router.get('/ingredients/add', loggedIn, (req, res) => {
   console.log("Read add ingredient successful!");
 
   unitController.getAllUnits(req, (units) => {
@@ -99,7 +99,7 @@ router.get('/ingredients/add', (req, res) => {
 });
 
 // Get procurement page
-router.get('/procurement', (req, res) => {
+router.get('/procurement', loggedIn, (req, res) => {
   console.log("Read procurement successful!");
   res.render('procurement');
 });
@@ -117,18 +117,18 @@ router.get('/purchase/add', (req, res) => {
 });
 */
 // Get accounting page
-router.get('/accounting', (req, res) => {
+router.get('/accounting', loggedIn, (req, res) => {
   console.log("Read accounting successful!");
   res.render('accounting');
 });
 
 // Logout
-router.get('/logout', userController.logoutUser);
+router.get('/logout', loggedIn, userController.logoutUser);
 
 // POST methods for form submissions
-router.post('/login', loginValidation, userController.loginUser);
-router.post('/supplies/add', supplyController.addSupply);
-router.post('/ingredients/add', ingredientController.addIngredient);
-router.post('/products/add', productController.addProduct);
+router.post('/login', loggedOut, loginValidation, userController.loginUser);
+router.post('/supplies/add', loggedIn, supplyController.addSupply);
+router.post('/ingredients/add', loggedIn, ingredientController.addIngredient);
+router.post('/products/add', loggedIn, productController.addProduct);
 
 module.exports = router;

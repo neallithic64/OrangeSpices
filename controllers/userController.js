@@ -20,7 +20,7 @@ exports.loginUser = (req, res) => {
                 req.session.username = user.username;
 
                 //if(user.userType == 'admin'){
-                    res.redirect('/category/admin'); // redirect to landing page, POS [replace this afterwards]
+                    res.redirect('/POS'); // redirect to landing page, POS [replace this afterwards]
                 //}
                 //if(user.userType == 'staff'){
                   //res.redirect('/category/admin'); 
@@ -45,10 +45,24 @@ exports.loginUser = (req, res) => {
   
 // Logout
 exports.logoutUser = (req, res) => {
-    if (req.session) {
-        req.session.destroy(() => {
-            res.clearCookie('connect.sid');
-            res.redirect('/login');
-        });
+  if (req.session) {
+    req.session.destroy(() => {
+      res.clearCookie('connect.sid');
+      res.redirect('/login');
+    });
+  }
+};
+
+// Get user by ID
+exports.getID = (req, res) => {
+  var id = req;
+
+  userModel.getById(id, (err, result) => {
+    if (err) {
+      console.log("Could not find user.");
+      throw err;
+    } else {
+      res(result);
     }
+  });
 };

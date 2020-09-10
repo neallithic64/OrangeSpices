@@ -35,6 +35,13 @@ exports.getOne = function(query, next) {
   });
 };
 
+// Retrieving a user based on ID
+exports.getById = function(id, next) {
+  User.findById(id, function(err, user) {
+    next(err, user);
+  });
+};
+
 // Edit/Update
 exports.update = function(id, update, next) {
     User.findOneAndUpdate({_id: id}, update, { new: true }, function(err, post) {

@@ -72,7 +72,7 @@ div .col-6{
 }
 
 .navbar-search{
-    width: 30% !important;
+    width: 47% !important;
 }
 
 .form-control-sm{
@@ -90,4 +90,22 @@ footer{
 
 .numresults{
     color: #aaaaaa !important;
+}
+
+.total{
+    font-weight: bold !important;
+}
+
+.bigto{
+    font-size: 20px !important;
+}
+
+.leftdiz{
+    text-align: left !important;
+    padding-left: 18px !important;
+}
+
+.rightdiz{
+    text-align: right !important;
+    padding-right: 18px !important;
 }
