@@ -28,6 +28,8 @@ exports.addIngredient = (req, res) => {
 				req.flash('error_msg', 'Already have that ingredient. Try again.');
 				res.redirect('/ingredients/add');
       } else {
+        console.log("ingredientName");
+        console.log(ingredientName);
         if(ingredientName && unit){
           var ingredient = {
             ingredientName: ingredientName,

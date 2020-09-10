@@ -3,7 +3,7 @@ const mongoose = require('./connection');
 const userSchema = new mongoose.Schema({
 	username: { type: String, required: true, min:5},
   password: { type: String, required: true, min:5},
-  userType: { type: Boolean, required: true},
+  isAdmin: { type: Boolean, required: true},
 });
 
 const User = mongoose.model('users', userSchema);

@@ -4,7 +4,7 @@ const ingredientController = require('../controllers/ingredientController');
 const unitController = require('../controllers/unitController');
 const supplyController = require('../controllers/supplyController');
 const productController = require('../controllers/productController');
-const { loginValidation } = require('../validators.js');
+const { loginValidation, addSupplyValidation } = require('../validators.js');
 const { loggedIn, loggedOut } = require('../middlewares/checkAuth');
 
 router.get('/', (req, res) => {
@@ -20,18 +20,17 @@ router.get('/login', loggedOut, (req, res) => {
 // Get POS [landing] page
 router.get('/POS', loggedIn, (req, res) => {
   console.log("Read POS successful!");
-
   userController.getID(req.session.user, (user) => {
     if(req.session.username == "admin"){
       res.render('POS', { 
-        userType: true,
+        isAdmin: true,
         username: req.session.username, 
         _id: req.session.user
       })
     }
     else {
       res.render('POS', { 
-        userType: false, 
+        isAdmin: false, 
         username: req.session.username,
         _id: req.session.user
       })
@@ -47,7 +46,7 @@ router.get('/products', loggedIn, (req, res) => {
     userController.getID(req.session.user, (user) => {
       if(req.session.username == "admin"){
         res.render('products', { 
-          userType: true,
+          isAdmin: true,
           username: req.session.username, 
           _id: req.session.user,
           product: products,
@@ -55,7 +54,7 @@ router.get('/products', loggedIn, (req, res) => {
       }
       else {
         res.render('products', { 
-          userType: false, 
+          isAdmin: false, 
           username: req.session.username,
           _id: req.session.user,
           product: products,
@@ -74,7 +73,7 @@ router.get('/products/add', loggedIn, (req, res) => {
       userController.getID(req.session.user, (user) => {
         if(req.session.username == "admin"){
           res.render('addProduct', { 
-            userType: true,
+            isAdmin: true,
             username: req.session.username, 
             _id: req.session.user,
             unit: units,
@@ -83,7 +82,7 @@ router.get('/products/add', loggedIn, (req, res) => {
         }
         else {
           res.render('addProduct', { 
-            userType: false, 
+            isAdmin: false, 
             username: req.session.username,
             _id: req.session.user,
             unit: units,
@@ -102,7 +101,7 @@ router.get('/supplies', loggedIn, (req, res) => {
     userController.getID(req.session.user, (user) => {
       if(req.session.username == "admin"){
         res.render('supplies', { 
-          userType: true,
+          isAdmin: true,
           username: req.session.username, 
           _id: req.session.user,
           supply: supplies,
@@ -110,7 +109,7 @@ router.get('/supplies', loggedIn, (req, res) => {
       }
       else {
         res.render('supplies', { 
-          userType: false, 
+          isAdmin: false, 
           username: req.session.username,
           _id: req.session.user,
           supply: supplies,
@@ -124,21 +123,35 @@ router.get('/supplies', loggedIn, (req, res) => {
 router.get('/supplies/add', loggedIn, (req, res) => {
   console.log("Read add supply successful!");
   ingredientController.getIngredientName(req, (ingredients) => {
-    res.render('addSupply',{
-      ingName: ingredients,
-    });
+    userController.getID(req.session.user, (user) => {
+      if(req.session.username == "admin"){
+        res.render('addSupply', { 
+          isAdmin: true,
+          username: req.session.username, 
+          _id: req.session.user,
+          ingName: ingredients,
+        })
+      }
+      else {
+        res.render('addSupply', { 
+          isAdmin: false, 
+          username: req.session.username,
+          _id: req.session.user,
+          ingName: ingredients,
+        })
+      }
+    })
   })
 });
 
 // Get inventory [ingredients] page
 router.get('/ingredients', loggedIn, (req, res) => {
   console.log("Read ingredients successful!");
-
   ingredientController.getAllIngredients(req, (ingredients) => {
     userController.getID(req.session.user, (user) => {
       if(req.session.username == "admin"){
         res.render('ingredients', { 
-          userType: true,
+          isAdmin: true,
           username: req.session.username, 
           _id: req.session.user,
           ingredient: ingredients,
@@ -146,7 +159,7 @@ router.get('/ingredients', loggedIn, (req, res) => {
       }
       else {
         res.render('ingredients', { 
-          userType: false, 
+          isAdmin: false, 
           username: req.session.username,
           _id: req.session.user,
           ingredient: ingredients,
@@ -159,11 +172,25 @@ router.get('/ingredients', loggedIn, (req, res) => {
 // Get add ingredient page
 router.get('/ingredients/add', loggedIn, (req, res) => {
   console.log("Read add ingredient successful!");
-
   unitController.getAllUnits(req, (units) => {
-    res.render('addIngredient',{
-      unit: units,
-    });
+    userController.getID(req.session.user, (user) => {
+      if(req.session.username == "admin"){
+        res.render('addIngredient', { 
+          isAdmin: true,
+          username: req.session.username, 
+          _id: req.session.user,
+          unit: units,
+        })
+      }
+      else {
+        res.render('addIngredient', { 
+          isAdmin: false, 
+          username: req.session.username,
+          _id: req.session.user,
+          unit: units,
+        })
+      }
+    })
   })
 });
 
@@ -173,14 +200,14 @@ router.get('/procurement', loggedIn, (req, res) => {
   userController.getID(req.session.user, (user) => {
     if(req.session.username == "admin"){
       res.render('procurement', { 
-        userType: true,
+        isAdmin: true,
         username: req.session.username, 
         _id: req.session.user,
       })
     }
     else {
       res.render('procurement', { 
-        userType: false, 
+        isAdmin: false, 
         username: req.session.username,
         _id: req.session.user,
       })
@@ -206,14 +233,14 @@ router.get('/accounting', loggedIn, (req, res) => {
   userController.getID(req.session.user, (user) => {
     if(req.session.username == "admin"){
       res.render('accounting', { 
-        userType: true,
+        isAdmin: true,
         username: req.session.username, 
         _id: req.session.user,
       })
     }
     else {
       res.render('accounting', { 
-        userType: false, 
+        isAdmin: false, 
         username: req.session.username,
         _id: req.session.user,
       })
@@ -226,7 +253,7 @@ router.get('/logout', loggedIn, userController.logoutUser);
 
 // POST methods for form submissions
 router.post('/login', loggedOut, loginValidation, userController.loginUser);
-router.post('/supplies/add', loggedIn, supplyController.addSupply);
+router.post('/supplies/add', loggedIn, addSupplyValidation, supplyController.addSupply);
 router.post('/ingredients/add', loggedIn, ingredientController.addIngredient);
 router.post('/products/add', loggedIn, productController.addProduct);
 
