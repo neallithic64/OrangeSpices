@@ -3,7 +3,8 @@ const mongoose = require('./connection');
 const supplySchema = new mongoose.Schema({
   brandName: { type: String, required: true, min:5},
   totalSupply: { type: Number, required: true, default: 0.00},
-  ingredientID: { type: mongoose.Schema.Types.ObjectId, ref: 'ingredient', required: true}, //set to true afterwards!!
+  unitQuantity: { type: Number, required: true},
+  ingredientID: { type: mongoose.Schema.Types.ObjectId, ref: 'ingredient', required: true}, 
 });
 
 const Supplies = mongoose.model('supply', supplySchema);

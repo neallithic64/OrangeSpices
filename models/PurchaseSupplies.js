@@ -2,7 +2,6 @@ const mongoose = require('./connection');
 
 const purchaseSupplySchema = new mongoose.Schema({
   purchaseQty: { type: Number, required: true},
-  unitQuantity: { type: Number, required: true},
   purchasePrice: { type: Number, required: true},
   purchaseDate: { type: Date, required: true},
   expiryDate: { type: Date, required: true},

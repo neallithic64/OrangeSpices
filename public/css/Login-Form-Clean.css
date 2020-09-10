@@ -7,6 +7,7 @@
 .login-clean form {
   max-width: 320px;
   width: 90%;
+  min-height: 450px;
   margin: 0 auto;
   background-color: #ffffff;
   padding: 40px;

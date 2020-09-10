@@ -58,6 +58,13 @@
     float: right !important;
 }
 
+.prod-btn{
+    background-color: #f47639 !important;
+    border: 2px solid #f47639 !important;
+    font-size: 10px !important;
+    float: right !important;
+}
+
 .list-group{
     text-align: center !important;
 }
