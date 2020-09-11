@@ -35,3 +35,17 @@ exports.getName = function(req, next) {
     next(err, supply); 
   });
 };
+
+// Get supply by ID
+exports.getByID = function(query, next) {
+  Supplies.findById(query, function(err, supply) {
+    next(err, supply);
+  });
+};
+
+// Update total supply
+exports.updateStock = function(id, update, next) {
+  Supplies.findOneAndUpdate({_id: id}, update, { new: true }, function(err, supply) {
+    next(err, supply);
+  })
+};

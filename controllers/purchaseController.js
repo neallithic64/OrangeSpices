@@ -1,4 +1,5 @@
 const purchaseModel = require('../models/PurchaseSupplies');
+const supplyModel = require('../models/Supplies');
 const { validationResult } = require('express-validator');
 
 //Getting all purchase
@@ -38,7 +39,7 @@ exports.addPurchase = (req, res) => {
         purchasePrice: purchPrice,
         totalPrice: total
       }
-
+      
       purchaseModel.add(purchase, function(err, result){
         if(err){
           console.log(err);
@@ -46,9 +47,25 @@ exports.addPurchase = (req, res) => {
           res.redirect('/purchase/add');
         }
         else {
+          var suppID = result.supplyID;
+          var quantity = result.purchaseQty;
+          var updateStock = {
+            $inc: { 
+              totalSupply: quantity
+            }
+          };
           console.log("Purchase added!");
           res.redirect('/procurement');
           console.log(result);
+
+          supplyModel.updateStock(suppID, updateStock, (err, result) => {
+            if (err) {
+              console.log('Could not update stock.');
+            } else {
+              console.log('Stock updated!');
+              console.log(result);
+            }
+          })
         }
       })
     }

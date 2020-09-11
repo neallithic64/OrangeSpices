@@ -69,3 +69,17 @@ exports.getSupplyName = (param, callback) => {
     callback(supplyObjects);
   });
 };
+
+// Get supply by ID
+exports.getSupplyID = (req, res) => {
+  var id = req.params.id;
+
+  supplyModel.getByID(id, (err, result) => {
+    if (err) {
+      throw err;
+    } else {
+      var supplyObject = result.toObject();
+      res(supplyObject);
+    }
+  });
+};
