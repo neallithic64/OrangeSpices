@@ -3,7 +3,7 @@ const mongoose = require('./connection');
 const userSchema = new mongoose.Schema({
 	username: { type: String, required: true, min:5},
   password: { type: String, required: true, min:5},
-  isAdmin: { type: Boolean, required: true},
+  isAdmin: { type: Boolean, required: false},
 });
 
 const User = mongoose.model('users', userSchema);
@@ -11,7 +11,6 @@ const User = mongoose.model('users', userSchema);
 // Create user
 exports.create = function(obj, next) {
     const user = new User(obj);
-    //console.log(user);
     user.save(function(err, user) {
       next(err, user);
     });

@@ -18,6 +18,7 @@ The following users may be used to log in:
 
 ### Dependencies
 - bcrypt
+- body-parser
 - connect-flash
 - connect-mongo
 - express
@@ -25,7 +26,9 @@ The following users may be used to log in:
 - express-session
 - express-validator
 - hbs
+- mongodb
 - mongoose
+- path
 
 ### Members
 - Calaranan, Krissha Joy

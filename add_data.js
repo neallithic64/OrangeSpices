@@ -8,12 +8,10 @@ var userArray = [
   {
     username: 'admin',
     password: 'admin',
-    userType: 'Admin'
   },
   {
     username: 'staff',
     password: 'orange&spices',
-    userType: 'Staff'
   }
 ];
 
@@ -23,19 +21,25 @@ var unitArray = [
     unitName: 'grams',
   },
   {
+    unitName: 'kilograms',
+  },
+  {
     unitName: 'pieces',
   },
   {
-    unitName: 'teaspoon',
+    unitName: 'liter',
   },
   {
-    unitName: 'liter',
+    unitName: 'milliliter',
   },
   {
     unitName: 'cups',
   },
   {
     unitName: 'tablespoon',
+  },
+  {
+    unitName: 'teaspoon',
   },
 ];
 
@@ -47,7 +51,6 @@ function populate1(){
   const user1 = {
     username: userArray[0].username,
     password: userArray[0].password,
-    userType: userArray[0].userType
   };
 
   bcrypt.hash(userArray[0].password, saltRounds, (err, hashed) => {
@@ -62,7 +65,6 @@ function populate1(){
     email: userArray[1].email,
     username: userArray[1].username,
     password: userArray[1].password,
-    userType: userArray[1].userType
   };
 
   bcrypt.hash(userArray[1].password, saltRounds, (err, hashed) => {
@@ -93,6 +95,12 @@ function populate2(){
   const unit6 = {
     unitName: unitArray[5].unitName
   };
+  const unit7 = {
+    unitName: unitArray[6].unitName
+  };
+  const unit8 = {
+    unitName: unitArray[7].unitName
+  };
 
   unitModel.addUnit(unit1, function(err, result) {
     if (err) throw err;
@@ -115,6 +123,14 @@ function populate2(){
     console.log(result);
   })
   unitModel.addUnit(unit6, function(err, result) {
+    if (err) throw err;
+    console.log(result);
+  })
+  unitModel.addUnit(unit7, function(err, result) {
+    if (err) throw err;
+    console.log(result);
+  })
+  unitModel.addUnit(unit8, function(err, result) {
     if (err) throw err;
     console.log(result);
   })
