@@ -10,21 +10,21 @@ const User = mongoose.model('users', userSchema);
 
 // Create user
 exports.create = function(obj, next) {
-    const user = new User(obj);
-    user.save(function(err, user) {
-      next(err, user);
-    });
+  const user = new User(obj);
+  user.save(function(err, user) {
+    next(err, user);
+  });
 };
 
 // Getting all users
 exports.getAll = function(next){
-    User.find({},function(err, result) {
-      const users = [];
-      result.forEach(function(user){
-        users.push(user.toObject());
-      });
-      next(err, users);
+  User.find({},function(err, result) {
+    const users = [];
+    result.forEach(function(user){
+      users.push(user.toObject());
     });
+    next(err, users);
+  });
 };
 
 // Retrieving just ONE user based on a query
@@ -43,7 +43,7 @@ exports.getById = function(id, next) {
 
 // Edit/Update
 exports.update = function(id, update, next) {
-    User.findOneAndUpdate({_id: id}, update, { new: true }, function(err, post) {
-      next(err, post);
-    })
+  User.findOneAndUpdate({_id: id}, update, { new: true }, function(err, post) {
+    next(err, post);
+  })
 };

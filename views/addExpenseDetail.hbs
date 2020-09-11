@@ -1,0 +1,79 @@
+<title>Add Expense Details</title>
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 shadow">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center m-0" href="/addExpenseDetail#page-top">
+                    <div class="sidebar-brand-icon"><img src="public/img/logo.png" width="75"></i></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/POS">Point of Sale</a></li>
+                    <li class="nav-item" role="presentation"><Products class="nav-link" href="/products">Products</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/supplies">Inventory</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/procurement">Procurement</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/expenseDetails">Accounting</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="background-color: #c64327 !important; color: #ffffff !important; padding-left: 16px !important; height: 36px !important;" href="/expenseDetails">Expense Details</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="padding-left: 16px !important; height: 36px !important;" href="/expense">Expense</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/reports">Reports</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="title"><span class="text-primary m-0 font-weight-bold">Add Expense Details</span></div>
+                    <form action="/expenseDetails/add" method="POST">
+                    <div class="buttons">
+                        <button type="submit" class="btn btn-primary btn-sm add-btn">Save</button>
+                        <a href="/expenseDetails"><button type="button" class="btn btn-primary btn-sm can-btn">Cancel</button></a>
+                    </div>            
+                </nav>    
+            <div class="container-fluid">
+                <div class="card shadow mb-3">  
+                    <div class="form-container" style="padding: 20px;">
+                        <div class="row">
+                            <div class="col-3">
+                                <label for="expenseDate" style="font-weight: bold;">Date</label>
+                                <input type="date" class="form-control" name="expenseDate">
+                                <p id="expenseDateError" class="error"></p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label for="expenseName" style="font-weight: bold;">Expense Name</label>
+                            <select class="form-control" name="expenseName">
+                                <option id="expenseName">Select expense name...</option>
+                                {{>expenseName}}
+                            </select>
+                            <p id="expenseNameError" class="error"></p>
+                        </div>
+                        <div class="col-8">
+                            <label for="expenseDesc" style="font-weight: bold;">Description</label>
+                            <input type="text" class="form-control" placeholder="Enter short description of expense..." name="expenseDesc">
+                            <p id="expenseDescError" class="error"></p>
+                        </div> 
+                        <div class="col-4">
+                            <label for="expenseAmt" style="font-weight: bold;">Amount</label>
+                            <input type="number" class="form-control" placeholder="Enter expense amount..." name="expenseAmt" min="1" step="0.01">
+                            <p id="expenseAmtError" class="error"></p>
+                        </div>   
+                        </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © Orange &amp; Spices 2020</span></div>
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
