@@ -34,6 +34,7 @@
             <div class="container-fluid">
                 <div class="card shadow mb-3">  
                     <div class="form-container" style="padding: 20px;">
+                        <div class="messages2">{{> messages}}</div>
                         <div class="row">
                             <div class="col-3">
                                 <label for="expenseDate" style="font-weight: bold;">Date</label>
@@ -51,7 +52,7 @@
                         </div>
                         <div class="col-8">
                             <label for="expenseDesc" style="font-weight: bold;">Description</label>
-                            <input type="text" class="form-control" placeholder="Enter short description of expense..." name="expenseDesc">
+                            <input type="text" class="form-control" placeholder="Enter short description of expense..." name="expenseDesc" maxlength="35"> 
                             <p id="expenseDescError" class="error"></p>
                         </div> 
                         <div class="col-4">
@@ -69,11 +70,5 @@
                 <div class="text-center my-auto copyright"><span>Copyright © Orange &amp; Spices 2020</span></div>
             </div>
         </footer>
-    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="assets/js/theme.js"></script>
+    </div><a class="border rounded d-inline scroll-to-top" href="/addExpenseDetail#page-top"><i class="fas fa-angle-up"></i></a></div>
 </body>
-
-</html>

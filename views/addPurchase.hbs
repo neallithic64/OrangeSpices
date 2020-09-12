@@ -37,6 +37,7 @@
                 <div class="card shadow mb-3">  
                     <div class="form-container" style="padding: 20px;">
                         <div class="col-5">
+                            <div class="messages2">{{> messages}}</div>
                             <label for="suppName" style="font-weight: bold;">Supply Name</label>
                             <select class="form-control" name="supplyName">
                                 <option id="suppName"> Select supply name...</option>
@@ -45,7 +46,6 @@
                             <p id="purchNameError" class="error"></p>
                         </div>
                         <div class="col-4">
-                            <div class="messages2">{{> messages}}</div>
                             <label for="purchDate" style="font-weight: bold;">Purchase Date</label>
                             <input type="date" class="form-control" name="purchDate">
                             <p id="purchDateError" class="error"></p>
@@ -76,5 +76,5 @@
                 <div class="text-center my-auto copyright"><span>Copyright © Orange &amp; Spices 2020</span></div>
             </div>
         </footer>
-    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    </div><a class="border rounded d-inline scroll-to-top" href="/addPurchase#page-top"><i class="fas fa-angle-up"></i></a></div>
 </body>

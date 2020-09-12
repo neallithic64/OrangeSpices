@@ -2,9 +2,9 @@ const mongoose = require('./connection');
 
 const expenseDetailSchema = new mongoose.Schema({
   date: { type: Date, required: true },
-  description: { type: String, required: true, min: 5 },
+  description: { type: String, required: true, min: 10 },
   expenseAmount: { type: Number, required: true },
-  expenseID: { type: mongoose.Schema.Types.ObjectId, ref: 'expense', required: false}, //set to true afterwards!!
+  expenseID: { type: mongoose.Schema.Types.ObjectId, ref: 'expense', required: true},
 });
 
 const ExpenseDetail = mongoose.model('expenseDetail', expenseDetailSchema);

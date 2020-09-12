@@ -7,7 +7,8 @@ const ingredientController = require('../controllers/ingredientController');
 const purchaseController = require('../controllers/purchaseController');
 const expenseController = require('../controllers/expenseController');
 const expenseDetailsController = require('../controllers/expenseDetailsController');
-const { loginValidation, addSupplyValidation, addIngredientValidation, addPurchaseValidation } = require('../validators.js');
+const { loginValidation, addSupplyValidation, addIngredientValidation, 
+        addPurchaseValidation, addExpenseValidation, addExpenseDetailsValidation } = require('../validators.js');
 const { loggedIn, loggedOut } = require('../middlewares/checkAuth');
 
 router.get('/', (req, res) => {
@@ -307,7 +308,7 @@ router.post('/products/add', loggedIn, productController.addProduct);
 router.post('/supplies/add', loggedIn, addSupplyValidation, supplyController.addSupply);
 router.post('/ingredients/add', loggedIn, addIngredientValidation, ingredientController.addIngredient);
 router.post('/purchase/add', loggedIn, addPurchaseValidation, purchaseController.addPurchase);
-router.post('/expense/add', loggedIn, expenseController.addExpense);
-router.post('/expenseDetails/add', loggedIn, expenseDetailsController.addExpenseDetails);
+router.post('/expense/add', loggedIn, addExpenseValidation, expenseController.addExpense);
+router.post('/expenseDetails/add', loggedIn, addExpenseDetailsValidation, expenseDetailsController.addExpenseDetails);
 
 module.exports = router;

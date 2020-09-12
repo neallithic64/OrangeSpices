@@ -16,11 +16,24 @@ const addSupplyValidation = [
 
 const addIngredientValidation = [
   // Ingredient name should not be empty
-  body('ingredientName').not().isEmpty().withMessage("Please enter ingredient name."),
+  body('ingredientName').not().isEmpty().withMessage("Please enter ingredient name.")
 ]
 
 const addPurchaseValidation = [
-
+  // Num items should not be empty
+  body('numItems').not().isEmpty().withMessage("Please enter number of items."),
+  // Num items should not be empty
+  body('purchPrice').not().isEmpty().withMessage("Please enter purchase price.")
 ]
 
-module.exports = { loginValidation, addSupplyValidation, addIngredientValidation, addPurchaseValidation };
+const addExpenseValidation = [
+  // Expense name should not be empty
+  body('expenseName').not().isEmpty().withMessage("Please enter expense name.")
+]
+
+const addExpenseDetailsValidation = [
+  // Description should not be empty
+  body('expenseDesc').not().isEmpty().withMessage("Please enter expense description.")
+]
+
+module.exports = { loginValidation, addSupplyValidation, addIngredientValidation, addPurchaseValidation, addExpenseValidation, addExpenseDetailsValidation };

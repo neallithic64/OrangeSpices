@@ -48,7 +48,7 @@ exports.addExpenseDetails = (req, res) => {
     } else {
       const messages = errors.array().map((item) => item.msg);
       req.flash('error_msg', messages.join(' '));
-      res.redirect('/expense/add');
+      res.redirect('/expenseDetails/add');
     }
 }; 
 

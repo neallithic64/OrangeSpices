@@ -27,7 +27,17 @@ exports.addPurchase = (req, res) => {
     if (supplyName == "Select supply name..."){
       req.flash('error_msg', 'Please select supply name.');
       res.redirect('/purchase/add');
-    } else {
+    } else if (purchDate == "" && expDate != ""){
+      req.flash('error_msg', 'Please select purchase date.');
+      res.redirect('/purchase/add');
+    } else if (purchDate != "" && expDate == ""){
+      req.flash('error_msg', 'Please select expiry date.');
+      res.redirect('/purchase/add');
+    } else if (purchDate == "" && expDate == ""){
+      req.flash('error_msg', 'Please select dates.');
+      res.redirect('/purchase/add');
+    }
+    else {
       var total;
       total = numItems * purchPrice;
       
@@ -72,7 +82,7 @@ exports.addPurchase = (req, res) => {
   } else {
     const messages = errors.array().map((item) => item.msg);
     req.flash('error_msg', messages.join(' '));
-    res.redirect('/ingredients/add');
+    res.redirect('/purchase/add');
   }
 }; 
 
