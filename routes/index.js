@@ -311,6 +311,6 @@ router.post('/ingredients/add', loggedIn, addIngredientValidation, ingredientCon
 router.post('/purchase/add', loggedIn, addPurchaseValidation, purchaseController.addPurchase);
 router.post('/expense/add', loggedIn, addExpenseValidation, expenseController.addExpense);
 router.post('/expenseDetails/add', loggedIn, addExpenseDetailsValidation, expenseDetailsController.addExpenseDetails);
-router.post('/supplies/:id', loggedIn, discrepancyController.checkDiscrepancy);
+router.post('/supplies/check', loggedIn, discrepancyController.checkDiscrepancy);
 
 module.exports = router;
