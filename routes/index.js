@@ -3,6 +3,7 @@ const userController = require('../controllers/userController');
 const unitController = require('../controllers/unitController');
 const productController = require('../controllers/productController');
 const supplyController = require('../controllers/supplyController');
+const discrepancyController = require('../controllers/discrepancyController');
 const ingredientController = require('../controllers/ingredientController');
 const purchaseController = require('../controllers/purchaseController');
 const expenseController = require('../controllers/expenseController');
@@ -310,5 +311,6 @@ router.post('/ingredients/add', loggedIn, addIngredientValidation, ingredientCon
 router.post('/purchase/add', loggedIn, addPurchaseValidation, purchaseController.addPurchase);
 router.post('/expense/add', loggedIn, addExpenseValidation, expenseController.addExpense);
 router.post('/expenseDetails/add', loggedIn, addExpenseDetailsValidation, expenseDetailsController.addExpenseDetails);
+router.post('/supplies/:id', loggedIn, discrepancyController.checkDiscrepancy);
 
 module.exports = router;

@@ -6,7 +6,9 @@
         <td>{{unitQuantity}}</td>
         <td>{{ingredientID.unitID.unitName}}</td> 
         <td class="shortonli">
-            <input class="compare-inv" placeholder="Enter physical stock..." type="text" id="compare" name="compare"></td>
+            <form action="/supplies/{{this._id}}" method="POST">
+            <input class="compare-inv" placeholder="Enter physical stock..." type="number" name="physicalCount" min="0">
+            <button type="submit" class="btn btn-sm btn-primary">Check</button>
         </td>
     </tr>
 {{/each}}

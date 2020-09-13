@@ -64,9 +64,6 @@ exports.addPurchase = (req, res) => {
               totalSupply: quantity
             }
           };
-          console.log("Purchase added!");
-          res.redirect('/procurement');
-          console.log(result);
 
           supplyModel.updateStock(suppID, updateStock, (err, result) => {
             if (err) {
@@ -76,6 +73,7 @@ exports.addPurchase = (req, res) => {
               console.log(result);
             }
           })
+          res.redirect('/procurement');
         }
       })
     }
