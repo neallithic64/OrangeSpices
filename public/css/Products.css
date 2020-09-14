@@ -40,6 +40,7 @@
       border: 2px solid #80C376 !important;
       border-radius: .5rem !important;
       font-size: 15px !important; 
+      margin-right: 10px;
   }
 
 .ord-btn{
@@ -47,6 +48,7 @@
     border: 2px solid #f47639 !important;
     border-radius: .5rem !important;
     font-size: 15px !important; 
+    margin-right: 20px;
 }
 
 .can-btn{
@@ -54,13 +56,24 @@
     border: 2px solid #c64327 !important;
     border-radius: .5rem !important;
     font-size: 15px !important; 
+    margin-right: 20px;
+    margin-left: 800px;
+}
+
+.save-btn{
+    background-color: #80C376 !important;
+    border: 2px solid #80C376 !important;
+    border-radius: .5rem !important;
+    font-size: 15px !important; 
+    margin-right: 10px;
 }
 
 .low-btn{
     background-color: #f47639 !important;
     border: 2px solid #f47639 !important;
     border-radius: .5rem !important;
-    font-size: 15px !important; 
+    font-size: 15px !important;
+    margin-right: 20px;
 }
 
 div .low-stock{
@@ -153,6 +166,6 @@ div .low-stock{
   }
 
   #success {
-      color: #79B870;
+      color: #80C376;
       text-align: center;
   }
