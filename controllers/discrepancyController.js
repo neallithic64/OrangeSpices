@@ -4,15 +4,16 @@ const { validationResult } = require('express-validator');
 
 exports.checkDiscrepancy = (req, res) => {
     const errors = validationResult(req);
+    const messages = errors.array().map((item) => item.msg);
     const { physicalCount, id } = req.body;
 
     if(errors.isEmpty()){
         if(physicalCount != ""){
             supplyModel.getByID(id, (err, result) => {
-                console.log(result);
                 var stock = result.totalSupply;
                 if(physicalCount == stock){
-                    req.flash('error_msg', 'System count and physical count are the same.');
+                    req.flash('success_msg', 'System count and physical count are the same.');
+                    res.redirect('/supplies');               
                 }
                 else {
                     var discrepancy = {
@@ -20,8 +21,6 @@ exports.checkDiscrepancy = (req, res) => {
                        date: Date.now(),
                        supplyID: id
                     };
-                    console.log("discrepancy");
-                    console.log(discrepancy);
                     
                     discrepancyModel.add(discrepancy, function(err, result){
                         if (err) {
@@ -31,12 +30,15 @@ exports.checkDiscrepancy = (req, res) => {
                             console.log(result);
                         }
                     })
+                    req.flash('success_msg', 'Discrepancy recorded!');
+                    res.redirect('/supplies');
                 }
             })
         }
         else {
             req.flash('error_msg', 'Please enter physical count.');
+            res.redirect('/supplies');
         }
     }
-    res.redirect('/supplies');
+    //res.redirect('/supplies');
 };

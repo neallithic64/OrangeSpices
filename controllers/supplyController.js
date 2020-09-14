@@ -44,6 +44,7 @@ exports.addSupply = (req, res) => {
           }
           else {
             console.log("Supply added!");
+            req.flash('success_msg', 'Supply added!');
             res.redirect('/supplies');
           }
         })

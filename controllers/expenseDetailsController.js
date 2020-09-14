@@ -36,12 +36,12 @@ exports.addExpenseDetails = (req, res) => {
         expenseDetailsModel.add(expenseDetails, function(err, result){
            if(err){
               console.log(err);
-              req.flash('error_msg', 'Could not add expense details. Please try again.');
+              req.flash('error_msg', 'Could not add expense details.');
               res.redirect('/expenseDetails/add');
             } else {
-               console.log("Expense added!");
-               console.log(result);
-               res.redirect('/expenseDetails');
+              req.flash('success_msg', 'Expense details added!');
+              console.log(result);
+              res.redirect('/expenseDetails');
             }
         })
     }

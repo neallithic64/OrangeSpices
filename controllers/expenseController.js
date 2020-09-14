@@ -34,12 +34,12 @@ exports.addExpense = (req, res) => {
            
           expenseModel.add(expense, function(err, result){
             if(err){
-              console.log(err);
               req.flash('error_msg', 'Could not add expense. Please try again.');
               res.redirect('/expense/add');
             }
             else {
               console.log("Expense added!");
+              req.flash('success_msg', 'Expense added!');
               res.redirect('/accounting');
             }
           })
@@ -47,7 +47,7 @@ exports.addExpense = (req, res) => {
       });
     } else {
       const messages = errors.array().map((item) => item.msg);
-      req.flash('error_msg', messages.join(' '));
+      req.flash('error_msg', messages.join(' ')); 
       res.redirect('/expense/add');
     }
 }; 

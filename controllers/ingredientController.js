@@ -44,6 +44,7 @@ exports.addIngredient = (req, res) => {
           }
           else {
             console.log("Ingredient added!");
+            req.flash('success_msg', 'Ingredient added!');
             res.redirect('/ingredients');
             console.log(result);
           }

@@ -21,7 +21,7 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 }
+  //cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 }
 }));
 
 // Flash

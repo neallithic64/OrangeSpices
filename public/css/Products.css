@@ -147,8 +147,12 @@ div .low-stock{
       width: 210px !important;
   }
 
-  div div div div #messages2 {
-    text-align: left;
-    color: #c64327 ; 
-    width: 350px;
+  #error {
+    color: #c64327; 
+    text-align: center;
+  }
+
+  #success {
+      color: #79B870;
+      text-align: center;
   }

@@ -67,13 +67,13 @@ exports.addPurchase = (req, res) => {
 
           supplyModel.updateStock(suppID, updateStock, (err, result) => {
             if (err) {
-              console.log('Could not update stock.');
+              req.flash('error_msg', 'Could not update stock.');
+              res.redirect('/purchase/add');
             } else {
-              console.log('Stock updated!');
-              console.log(result);
+              req.flash('success_msg', 'Stock updated!');
+              res.redirect('/procurement');
             }
           })
-          res.redirect('/procurement');
         }
       })
     }

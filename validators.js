@@ -36,4 +36,5 @@ const addExpenseDetailsValidation = [
   body('expenseDesc').not().isEmpty().withMessage("Please enter expense description.")
 ]
 
-module.exports = { loginValidation, addSupplyValidation, addIngredientValidation, addPurchaseValidation, addExpenseValidation, addExpenseDetailsValidation };
+module.exports = { loginValidation, addSupplyValidation, addIngredientValidation, addPurchaseValidation, 
+  addExpenseValidation, addExpenseDetailsValidation };

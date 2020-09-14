@@ -4,43 +4,37 @@ const bcrypt = require('bcrypt');
 
 // Login
 exports.loginUser = (req, res) => {
-    const errors = validationResult(req);
-    if (errors.isEmpty()) {
-      const { username, password } = req.body;
-      userModel.getOne({ username: username }, (err, user) => {
-        if (err) {
-          req.flash('error_msg', 'Something happened! Please try again.');
+  const errors = validationResult(req);
+  if (errors.isEmpty()) {
+    const { username, password } = req.body;
+    userModel.getOne({ username: username }, (err, user) => {
+      if (err) {
+        req.flash('error_msg', 'Something happened! Please try again.');
+        res.redirect('/login');
+      } else {
+        if (user) { // if user is found!
+          bcrypt.compare(password, user.password, (err, result) => {
+            if (result) { // passwords match (result == true)
+              // Update session object once matched!
+              req.session.user = user._id;
+              req.session.username = user.username;
+              res.redirect('/POS'); 
+            } else {  // If passwords don't match
+              req.flash('error_msg', 'Password does not match.');
+              res.redirect('/login');
+            }
+          });
+        } else {  // No user found
+          req.flash('error_msg', 'No user with that username.');
           res.redirect('/login');
-        } else {
-          if (user) { // if user is found!
-            bcrypt.compare(password, user.password, (err, result) => {
-              if (result) { // passwords match (result == true)
-                // Update session object once matched!
-                req.session.user = user._id;
-                req.session.username = user.username;
-
-                //if(user.userType == 'admin'){
-                    res.redirect('/POS'); // redirect to landing page, POS [replace this afterwards]
-                //}
-                //if(user.userType == 'staff'){
-                  //res.redirect('/category/admin'); 
-                //} 
-              } else {  // If passwords don't match
-                req.flash('error_msg', 'Password does not match. Please try again.');
-                res.redirect('/login');
-              }
-            });
-          } else {  // No user found
-            req.flash('error_msg', 'No user with that username.');
-            res.redirect('/login');
-          }
         }
-      });
-    } else {
+      }
+    });
+  } else {
     const messages = errors.array().map((item) => item.msg);
-    req.flash('error_msg', messages.join(' '));
+		req.flash('error_msg', messages.join(' '));
     res.redirect('/login');
-  }
+ }
 };
   
 // Logout
