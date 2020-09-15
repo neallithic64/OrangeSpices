@@ -43,10 +43,10 @@
             <div class="container-fluid">
                 <div class="card shadow mb-3">  
                     <div class="form-container" style="padding: 20px;">
-                        <div class="col-5">
-                            {{>messages}}
+                        {{>messages}}
+                        <div class="col-4">
                             <label for="supplyBrand" style="font-weight: bold;">Brand</label>
-                            <input type="text" class="form-control" placeholder="Enter brand name..." name="supplyBrand" maxlength="35">
+                            <input type="text" class="form-control" placeholder="Enter brand name... (ex: Alaska 900g)" name="supplyBrand" maxlength="35">
                             <p id="supplyBrandError" class="error"></p>
                         </div>
                         <div class="col-4">

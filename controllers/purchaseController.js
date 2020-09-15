@@ -59,19 +59,32 @@ exports.addPurchase = (req, res) => {
         else {
           var suppID = result.supplyID;
           var quantity = result.purchaseQty;
-          var updateStock = {
-            $inc: { 
-              totalSupply: quantity
-            }
-          };
-
-          supplyModel.updateStock(suppID, updateStock, (err, result) => {
+          var unitQuantity, total;
+          
+          supplyModel.getByID(suppID, (err, supply) => {
             if (err) {
-              req.flash('error_msg', 'Could not update stock.');
+              req.flash('error_msg', 'Could not find supply.');
               res.redirect('/purchase/add');
-            } else {
-              req.flash('success_msg', 'Stock updated!');
-              res.redirect('/procurement');
+            }
+            else {
+              unitQuantity = supply.unitQuantity;
+              total = quantity * unitQuantity;
+              var updateStock = {
+                $inc: { 
+                  totalSupply: total
+                }
+              };
+    
+              supplyModel.updateStock(suppID, updateStock, (err, result) => {
+    
+                if (err) {
+                  req.flash('error_msg', 'Could not update stock.');
+                  res.redirect('/purchase/add');
+                } else {
+                  req.flash('success_msg', 'Purchase added!');
+                  res.redirect('/procurement');
+                }
+              })
             }
           })
         }

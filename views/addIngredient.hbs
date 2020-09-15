@@ -41,12 +41,12 @@
                         </div>            
                 </nav>    
             <div class="container-fluid">
+                {{>messages}}
                 <div class="card shadow mb-3">  
                     <div class="form-container" style="padding: 20px;">
                         <div class="col-4">
-                            {{>messages}}
                             <label for="ingredientName" style="font-weight: bold;">Ingredient</label>
-                            <input type="text" class="form-control" placeholder="Enter ingredient name..." maxlength="55" name="ingredientName">
+                            <input type="text" class="form-control" placeholder="Enter ingredient name... (ex: Milk)" maxlength="55" name="ingredientName">
                             <p id="ingredientNameError" class="error"></p>
                         </div>
                         <div class="col-2">

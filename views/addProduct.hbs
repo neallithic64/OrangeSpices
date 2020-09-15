@@ -34,10 +34,10 @@
                     </div>            
                 </nav>
             <div class="container-fluid">
+                {{>messages}}
                 <div class="card shadow mb-3">  
                     <div class="form-container" style="padding: 20px;">
                         <div class="col-5">
-                            {{>messages}}
                             <label for="prodName" style="font-weight: bold;">Name</label>
                             <input type="text" class="form-control" placeholder="Enter product name..." name="prodName">
                             <p id="prodNameError" class="error"></p>

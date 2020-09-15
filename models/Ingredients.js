@@ -35,3 +35,10 @@ exports.getName = function(req, next) {
     next(err, ingredient); 
   });
 };
+
+// Update total ingredients
+exports.updateIngredient = function(id, update, next) {
+  Ingredient.findOneAndUpdate({_id: id}, update, { new: true }, function(err, ingredient) {
+    next(err, ingredient);
+  })
+};

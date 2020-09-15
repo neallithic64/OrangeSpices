@@ -34,10 +34,10 @@
                     </div>            
                 </nav>    
             <div class="container-fluid">
+                {{>messages}}
                 <div class="card shadow mb-3">  
                     <div class="form-container" style="padding: 20px;">
-                        <div class="col-5">
-                            {{>messages}}
+                        <div class="col-3">
                             <label for="suppName" style="font-weight: bold;">Supply Name</label>
                             <select class="form-control" name="supplyName">
                                 <option id="suppName"> Select supply name...</option>
@@ -45,7 +45,7 @@
                             </select>
                             <p id="purchNameError" class="error"></p>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <label for="purchDate" style="font-weight: bold;">Purchase Date</label>
                             <input type="date" class="form-control" name="purchDate">
                             <p id="purchDateError" class="error"></p>
@@ -55,14 +55,14 @@
                             <input type="date" class="form-control" name="expDate">
                             <p id="expDateError" class="error"></p>
                         </div>
-                        <div class="col-2">
+                        <div class="col-3">
                             <label for="numItems" style="font-weight: bold;">No. of Items</label>
-                            <input type="number" class="form-control" placeholder="No. of items" name="numItems" min="1">
+                            <input type="number" class="form-control" placeholder="Enter number of items" name="numItems" min="1">
                             <p id="numItemsError" class="error"></p>
                         </div>
                         <div class="col-3">
                             <label for="purchPrice" style="font-weight: bold;">Price</label>
-                            <input type="number" class="form-control" placeholder="Purchase price" name="purchPrice" min="1" step="0.01">
+                            <input type="number" class="form-control" placeholder="Price per item" name="purchPrice" min="1" step="0.01">
                             <p id="purchPriceError" class="error"></p>
                         </div>
                         

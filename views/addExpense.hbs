@@ -33,10 +33,10 @@
                     </div>            
                 </nav>    
             <div class="container-fluid">
+                {{>messages}}
                 <div class="card shadow mb-3">  
                     <div class="form-container" style="padding: 20px;">
                         <div class="row">
-                            {{>messages}}
                             <form action="/expense/add" method="POST">
                             <div class="col-4">
                                 <label for="expenseName" style="font-weight: bold;">Name</label>
