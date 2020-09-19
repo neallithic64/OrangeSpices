@@ -1,0 +1,98 @@
+<title>Sales Report</title>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 shadow">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center m-0" href="/salesReport#page-top">
+                    <div class="sidebar-brand-icon"><img src="public/img/logo.png" width="75"></i></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/POS">Point of Sale</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/products">Products</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/supplies">Inventory</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/procurement">Procurement</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/expenseDetails">Accounting</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/order_history">Reports</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="padding-left: 16px !important; height: 36px !important;" href="/order_history">Order History</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="background-color: #c64327 !important; color: #ffffff !important; padding-left: 16px !important; height: 36px !important;" href="/sales_report">Sales Report</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="padding-left: 16px !important; height: 36px !important;" href="/inventory_report">Inventory Report</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="padding-left: 16px !important; height: 36px !important;" href="#">Purchase Report</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="padding-left: 16px !important; height: 36px !important;" href="/profitability">Profitability Report</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="title"><span class="text-primary m-0 font-weight-bold">Sales Report</span></div>
+                    <div class="mr-2 font-weight-bold"><label for="salRepMonth" class="col-form-label">Month</label></div>
+                    <div class="col-2">
+                        <select class="form-control" name="salRepMonth">
+                            <option id="1">January</option>
+                            <option id="2">February</option>
+                            <option id="3">March</option>
+                            <option id="4">April</option>
+                            <option id="5">May</option>
+                            <option id="6">June</option>
+                            <option id="7">July</option>
+                            <option id="8">August</option>
+                            <option id="9">September</option>
+                            <option id="10">October</option>
+                            <option id="11">November</option>
+                            <option id="12">December</option>
+                        </select>
+                    </div>
+                    <div class="mr-3 ml-3 font-weight-bold"><label for="salRepYear" class="col-form-label">Year</label></div>
+                    <div class="col-xs-2 date-report"><input type="number" class="form-control" placeholder="yyyy" name="salRepYear"></div>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <div class="col-12">
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">Sales Report for the Month of January Year 2020</p>
+                            <p class="text-muted m-0">Date Generated: 9/18/2020 4:39 pm</p>
+                        </div>
+                        <table class="table text-center table-bordered">
+                            <caption class="text-center font-weight-bold">*END OF REPORT*</caption>
+                            <thead class="border-bottom">
+                              <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Total</th>
+                              </tr>
+                            </thead>
+                            <tbody class="border-bottom">
+                              <tr>
+                                <td class="text-left pl-4">Cajun Chicken Tenders</td>
+                                <td>2</td>
+                                <td>₱ 105.00</td>
+                                <td class="font-weight-bold">₱ 210.00</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © Orange &amp; Spices 2020</span></div>
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

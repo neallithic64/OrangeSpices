@@ -103,7 +103,7 @@ div .low-stock{
   }
 
   .title{
-      width: 300px;
+      width: 80%;
   }
   
   .list-group{
@@ -168,4 +168,38 @@ div .low-stock{
   #success {
       color: #80C376;
       text-align: center;
+  }
+
+  .text-muted{
+    color: #5c5c5c !important;
+    font-size: 15px !important;
+  }
+
+  .ts0{
+    color: #c64327 !important;
+    font-size: 25px !important;
+  }
+
+  .ts1{
+    color: #7a7a7a !important;
+    font-size: 18px !important;
+  }
+
+  .ts2{
+    color: #7a7a7a !important;
+    font-size: 16px !important;
+  }
+
+  .is-card{
+      width: 500px !important;
+      border: none !important;
+  }
+
+  .profit td, .profit th{
+    padding: 5px 20px !important;
+  } 
+
+  .highlight{
+    color: #ffff !important;
+    background-color: #c64327 !important;
   }

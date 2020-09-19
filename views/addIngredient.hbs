@@ -19,7 +19,7 @@
                         style="background-color: #c64327 !important; color: #ffffff !important; padding-left: 16px !important; height: 36px !important;" href="/ingredients">Ingredients</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/procurement">Procurement</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/expenseDetails">Accounting</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/reports">Reports</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/order_history">Reports</a></li>
                     {{else}}
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/supplies">Inventory</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" 
@@ -44,12 +44,12 @@
                 {{>messages}}
                 <div class="card shadow mb-3">  
                     <div class="form-container" style="padding: 20px;">
-                        <div class="col-4">
+                        <div class="col-3">
                             <label for="ingredientName" style="font-weight: bold;">Ingredient</label>
-                            <input type="text" class="form-control" placeholder="Enter ingredient name... (ex: Milk)" maxlength="55" name="ingredientName">
+                            <input type="text" class="form-control" placeholder="Enter ingredient name... (ex: Milk)" maxlength="35" name="ingredientName">
                             <p id="ingredientNameError" class="error"></p>
                         </div>
-                        <div class="col-2">
+                        <div class="col-3">
                             <label for="unit" style="font-weight: bold;">Unit</label>
                             <select class="form-control" name="unit">
                                 <option id="unit">Select unit...</option>

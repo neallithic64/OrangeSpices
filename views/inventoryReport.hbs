@@ -1,0 +1,75 @@
+<title>Inventory Report</title>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 shadow">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center m-0" href="/inventoryReport#page-top">
+                    <div class="sidebar-brand-icon"><img src="public/img/logo.png" width="75"></i></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/POS">Point of Sale</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/products">Products</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/supplies">Inventory</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/procurement">Procurement</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/expenseDetails">Accounting</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/order_history">Reports</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="padding-left: 16px !important; height: 36px !important;" href="/order_history">Order History</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="padding-left: 16px !important; height: 36px !important;" href="/sales_report">Sales Report</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="background-color: #c64327 !important; color: #ffffff !important; padding-left: 16px !important; height: 36px !important;" href="/inventory_report">Inventory Report</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="padding-left: 16px !important; height: 36px !important;" href="#">Purchase Report</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" 
+                        style="padding-left: 16px !important; height: 36px !important;" href="/profitability">Profitability Report</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="title"><span class="text-primary m-0 font-weight-bold">Inventory Report</span></div>
+                    <div class="mr-3 col-xs-4 font-weight-bold"><label for="ordfromDate" class="col-form-label">From</label></div>
+                    <div class="col-xs-3 date-report"><input type="date" class="form-control" name="ordfromDate"></div>
+                    <div class="mr-3 ml-4 col-xs-4 font-weight-bold"><label for="ordToDate" class="col-form-label">To</label></div>
+                    <div class="col-xs-3 date-report"><input type="date" class="form-control" name="ordToDate"></div>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <div class="col-12">
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">Inventory Report from 9/11/2020 to 9/18/2020 </p>
+                            <p class="text-muted m-0">Date Generated: 9/18/2020 4:39 pm</p>
+                        </div>
+                        <table class="table text-center table-bordered">
+                            <caption class="text-center font-weight-bold">*END OF REPORT*</caption>
+                            <thead class="border-bottom">
+                                <tr>
+                                  <th scope="col">Brand</th>
+                                  <th scope="col">Ingredient</th>
+                                  <th scope="col">Quantity Used</th>
+                                </tr>
+                              </thead>
+                              <tbody class="border-bottom">
+                                <tr>
+                                  <td class="text-left pl-4">Dari Creme (500g)</td>
+                                  <td>Butter</td>
+                                  <td>14</td>
+                                </tr>
+                              </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © Orange &amp; Spices 2020</span></div>
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="/inventoryReport#page-top"><i class="fas fa-angle-up"></i></a></div>
+</body>
