@@ -368,7 +368,7 @@ router.get('/profitability', (req, res) => {
   console.log("Read profitability report successful!");
   //expenseController.getExpenseName(req, (expense) => {
     //userController.getID(req.session.user, (user) => {
-      if(req.session.username == "admin"){
+      if(req.session.username === "admin"){
         res.render('profitability', { 
           isAdmin: true,
           //expenseName: expense
@@ -382,6 +382,10 @@ router.get('/profitability', (req, res) => {
       }
     //})
   //})
+});
+
+router.get('/getIngredients', (req, res) => {
+  ingredientController.getAllIngredients('', ing => res.status(200).send(ing));
 });
 
 // Logout
