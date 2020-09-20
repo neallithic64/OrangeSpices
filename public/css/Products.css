@@ -56,8 +56,7 @@
     border: 2px solid #c64327 !important;
     border-radius: .5rem !important;
     font-size: 15px !important; 
-    margin-right: 20px;
-    margin-left: 800px;
+    width: 70px;
 }
 
 .save-btn{
@@ -65,7 +64,8 @@
     border: 2px solid #80C376 !important;
     border-radius: .5rem !important;
     font-size: 15px !important; 
-    margin-right: 10px;
+    margin-right: 5px;
+    width: 70px;
 }
 
 .low-btn{
@@ -163,6 +163,7 @@ div .low-stock{
   #error {
     color: #c64327; 
     text-align: center;
+    font-size: 18px;
   }
 
   #success {
