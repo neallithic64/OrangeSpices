@@ -29,7 +29,7 @@
                     <div class="title"><span class="text-primary m-0 font-weight-bold">Add Product</span></div>
                     <form action="/products/add" method="POST">
                     <div class="buttons">
-                        <button type="button" class="btn btn-primary btn-sm save-btn">Save</button>
+                        <button type="submit" class="btn btn-primary btn-sm save-btn">Save</button>
                         <a href="/products"><button type="button" class="btn btn-primary btn-sm can-btn">Cancel</button></a>
                     </div>            
                 </nav>
@@ -39,20 +39,20 @@
                     <div class="form-container" style="padding: 20px;">
                         <div class="col-5">
                             <label for="prodName" style="font-weight: bold;">Name</label>
-                            <input type="text" class="form-control" placeholder="Enter product name..." name="prodName">
+                            <input type="text" class="form-control" placeholder="Enter product name..." name="prodName" maxlength="35">
                             <p id="prodNameError" class="error"></p>
                         </div>
                         <div class="col-4">
                             <label for="category" style="font-weight: bold;">Category</label>
                             <select class="form-control" name="category">
-                                <option value="AC">Ala Carte</option>
-                                <option value="BRM">Beef Rice Meals</option>
-                                <option value="PRM">Pork Rice Meals</option>
-                                <option value="CRM">Chicken Rice Meals</option>
-                                <option value="ADB">All Day Breakfast</option>
-                                <option value="GSM">Group Set Meals</option>
-                                <option value="PSM">Party Set Meals</option>
-                                <option value="OT">Others</option>
+                               <option value="Ala Carte">Ala Carte</option>
+                                <option value="Beef Rice Meal">Beef Rice Meals</option>
+                                <option value="Pork Rice Meals">Pork Rice Meals</option>
+                                <option value="Chicken Rice Meals">Chicken Rice Meals</option>
+                                <option value="All Day Breakfast">All Day Breakfast</option>
+                                <option value="Group Set Meals">Group Set Meals</option>
+                                <option value="Party Set Meals">Party Set Meals</option>
+                                <option value="Others">Others</option>
                             </select>
                             <p id="categoryError" class="error"></p>
                         </div>

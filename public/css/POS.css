@@ -136,3 +136,25 @@ footer{
     text-align: right !important;
     padding-right: 18px !important;
 }
+
+.cancel{
+    font-size: 18px !important;
+    text-align: left !important;
+    padding-top: 18px !important;
+    padding-left: 18px !important;
+}
+
+.cancel a{
+    color: #c64327 !important;
+}
+
+.checkout a{
+    color: #80C376 !important;
+}
+
+.checkout{
+    font-size: 18px !important;
+    text-align: right !important;
+    padding-top: 18px !important;
+    padding-right: 18px !important;
+}
