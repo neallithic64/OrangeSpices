@@ -7,6 +7,13 @@ const loginValidation = [
   body('password').not().isEmpty().withMessage("Please enter password.")
 ];
 
+const addProductValidation = [
+  // Brand should not be empty
+  body('prodName').not().isEmpty().withMessage("Please enter product name."),
+  // Unit quantity should not be empty
+  body('prodPrice').not().isEmpty().withMessage("Please enter product price."),
+]
+
 const addSupplyValidation = [
   // Brand should not be empty
   body('supplyBrand').not().isEmpty().withMessage("Please enter brand."),
@@ -36,5 +43,5 @@ const addExpenseDetailsValidation = [
   body('expenseDesc').not().isEmpty().withMessage("Please enter expense description.")
 ]
 
-module.exports = { loginValidation, addSupplyValidation, addIngredientValidation, addPurchaseValidation, 
-  addExpenseValidation, addExpenseDetailsValidation };
+module.exports = { loginValidation, addProductValidation, addSupplyValidation, addIngredientValidation, 
+addPurchaseValidation, addExpenseValidation, addExpenseDetailsValidation };

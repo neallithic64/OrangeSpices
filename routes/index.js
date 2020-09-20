@@ -8,7 +8,7 @@ const ingredientController = require('../controllers/ingredientController');
 const purchaseController = require('../controllers/purchaseController');
 const expenseController = require('../controllers/expenseController');
 const expenseDetailsController = require('../controllers/expenseDetailsController');
-const { loginValidation, addSupplyValidation, addIngredientValidation, 
+const { loginValidation, addProductValidation, addSupplyValidation, addIngredientValidation, 
         addPurchaseValidation, addExpenseValidation, addExpenseDetailsValidation } = require('../validators.js');
 const { loggedIn, loggedOut } = require('../middlewares/checkAuth');
 
@@ -389,7 +389,7 @@ router.get('/logout', loggedIn, userController.logoutUser);
 
 // POST methods for form submissions
 router.post('/login', loggedOut, loginValidation, userController.loginUser);
-router.post('/products/add', loggedIn, productController.addProduct);
+router.post('/products/add', loggedIn, addProductValidation, productController.addProduct);
 router.post('/supplies/add', loggedIn, addSupplyValidation, supplyController.addSupply);
 router.post('/ingredients/add', loggedIn, addIngredientValidation, ingredientController.addIngredient);
 router.post('/purchase/add', loggedIn, addPurchaseValidation, purchaseController.addPurchase);
