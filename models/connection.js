@@ -7,5 +7,7 @@ const options = {
   useFindAndModify: false 
 };
 
+mongoose.set('useCreateIndex', true);
+
 mongoose.connect(databaseURL, options);
 module.exports = mongoose;

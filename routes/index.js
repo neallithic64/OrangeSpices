@@ -300,6 +300,90 @@ router.get('/expense/add', (req, res) => {
   })
 });
 
+// Get order history report page
+router.get('/order_history', (req, res) => {
+  console.log("Read order history successful!");
+  //expenseController.getExpenseName(req, (expense) => {
+    //userController.getID(req.session.user, (user) => {
+      if(req.session.username == "admin"){
+        res.render('orderHistory', { 
+          isAdmin: true,
+          //expenseName: expense
+        })
+      }
+      else {
+        res.render('orderHistory', { 
+          isAdmin: false,
+          //expenseName: expense
+        })
+      }
+    //})
+  //})
+});
+
+// Get sales report page
+router.get('/sales_report', (req, res) => {
+  console.log("Read sales report successful!");
+  //expenseController.getExpenseName(req, (expense) => {
+    //userController.getID(req.session.user, (user) => {
+      if(req.session.username == "admin"){
+        res.render('salesReport', { 
+          isAdmin: true,
+          //expenseName: expense
+        })
+      }
+      else {
+        res.render('salesReport', { 
+          isAdmin: false,
+          //expenseName: expense
+        })
+      }
+    //})
+  //})
+});
+
+// Get inventory report page
+router.get('/inventory_report', (req, res) => {
+  console.log("Read inventory report successful!");
+  //expenseController.getExpenseName(req, (expense) => {
+    //userController.getID(req.session.user, (user) => {
+      if(req.session.username == "admin"){
+        res.render('inventoryReport', { 
+          isAdmin: true,
+          //expenseName: expense
+        })
+      }
+      else {
+        res.render('inventoryReport', { 
+          isAdmin: false,
+          //expenseName: expense
+        })
+      }
+    //})
+  //})
+});
+
+// Get  profitability page
+router.get('/profitability', (req, res) => {
+  console.log("Read profitability report successful!");
+  //expenseController.getExpenseName(req, (expense) => {
+    //userController.getID(req.session.user, (user) => {
+      if(req.session.username == "admin"){
+        res.render('profitability', { 
+          isAdmin: true,
+          //expenseName: expense
+        })
+      }
+      else {
+        res.render('profitability', { 
+          isAdmin: false,
+          //expenseName: expense
+        })
+      }
+    //})
+  //})
+});
+
 // Logout
 router.get('/logout', loggedIn, userController.logoutUser);
 
