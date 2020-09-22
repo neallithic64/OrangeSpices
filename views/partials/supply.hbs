@@ -1,16 +1,16 @@
 {{#each supply}}
     <tr>
-        <td>{{brandName}}</td>
+        <td class="text-left pl-3">{{brandName}}</td>
         <td>{{totalSupply}}</td>
         <td>{{ingredientID.ingredientName}}</td>
         <td>{{unitQuantity}}</td>
         <td>{{ingredientID.unitID.unitName}}</td> 
-        <td class="shortonli">
+        <td style="width: 70px !important;">
             <form action="/supplies/check" method="POST">
             <input name="id" type="hidden" value="{{this._id}}">
-            <input class="compare-inv" placeholder="Enter physical stock..." type="number" name="physicalCount" min="0">
-            <button type="submit" class="btn btn-sm btn-primary">Check</button>
+            <input class="compare-inv" placeholder="Enter physical stock" type="number" name="physicalCount" min="0">
             </form>
         </td>
+        <td style="width: 70px !important;"><button type="submit" class="btn btn-sm btn-primary" style="height: 28px !important; font-size: 10px;">Check</button></td>
     </tr>
 {{/each}}

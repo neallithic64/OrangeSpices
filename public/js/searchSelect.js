@@ -1,9 +1,9 @@
 $(function() {
     $('#select-ingredient').selectize({
         options: [],
-        labelField: 'name',
-        valueField: 'value',
-        searchField: ['name'],
+        labelField: 'ingredientName',
+        valueField: '_id',
+        searchField: ['ingredientName'],
         placeholder: 'Select ingredient',
         maxItems: 1,
         delimiter: ',',
@@ -15,12 +15,12 @@ $(function() {
                 return callback();
             $.ajax({
                 url: '/getIngredients',
-                type: 'GET',
+                method: 'GET',
+                data: {
+                    name : query
+                },
                 error: () => callback(),
-                success: (res) => {
-                    console.log(res),
-                    callback(res);
-                } 
+                success: a => callback(a)
             });
         }
     });
