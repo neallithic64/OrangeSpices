@@ -1,3 +1,44 @@
+.prod-btn:hover{
+    background-color: #c64327 !important;
+    border: 2px solid #c64327 !important;
+}
+
+.category button:hover{
+    background-color: #c64327 !important;
+    border: 2px solid #c64327 !important;
+}
+
+.category .active {
+    background-color: #c64327 !important;
+    border: 2px solid #c64327 !important;
+    color: white;
+}
+
+.category button{
+    float: right !important;
+}
+
+.div[class*="divmenu"]:first-of-type {
+    display: block;
+}
+
+.divmenu {
+    display: none;
+    border-top: none;
+}
+
+.category{
+    text-align: left !important;
+    width: 450px !important;
+    height: 32px !important;
+    margin-bottom: 5px;
+    margin-left: 30px;
+}
+
+.category .btn{
+    margin: 0px 1px;
+}
+
 .cancel{
     font-size: 18px !important;
     text-align: left !important;

@@ -1,9 +1,8 @@
 $(function() {
     $('#select-ingredient').selectize({
-        options: [{ingredientName: "Butter", value: "Butter"}, {ingredientName: "Baking Powder", value: "Baking Powder"},
-                  {ingredientName: "Chicken", value: "Chicken"}],
+        options: [],
         labelField: 'ingredientName',
-        valueField: 'value',
+        valueField: '_id',
         searchField: ['ingredientName'],
         placeholder: 'Select ingredient',
         maxItems: 1,
@@ -16,12 +15,12 @@ $(function() {
                 return callback();
             $.ajax({
                 url: '/getIngredients',
-                type: 'GET',
+                method: 'GET',
+                data: {
+                    name : query
+                },
                 error: () => callback(),
-                success: (res) => {
-                    console.log(res),
-                    callback(res);
-                } 
+                success: a => callback(a)
             });
         }
     });

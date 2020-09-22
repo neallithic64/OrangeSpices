@@ -9,25 +9,7 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/POS">Point of Sale</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" 
-                            style="padding-left: 16px !important; height: 36px !important;" href="#">Ala Carte</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" 
-                            style="padding-left: 16px !important; height: 36px !important;" href="#">Beef Rice Meals</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" 
-                            style="padding-left: 16px !important; height: 36px !important; background-color: #c64327 !important; color: #ffffff !important;" href="#">Pork Rice Meals</a></li>  
-                        <li class="nav-item" role="presentation"><a class="nav-link" 
-                            style="padding-left: 16px !important; height: 36px !important;" href="#">Chicken Rice Meals</a></li>  
-                        <li class="nav-item" role="presentation"><a class="nav-link" 
-                            style="padding-left: 16px !important; height: 36px !important;" href="#">All Day Breakfast</a></li> 
-                        <li class="nav-item" role="presentation"><a class="nav-link" 
-                            style="padding-left: 16px !important; height: 36px !important;" href="#">Baked Spaghetti</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" 
-                            style="padding-left: 16px !important; height: 36px !important;" href="#">Group Set Meals</a></li> 
-                        <li class="nav-item" role="presentation"><a class="nav-link" 
-                            style="padding-left: 16px !important; height: 36px !important;" href="#">Party Set Meals</a></li> 
-                        <li class="nav-item" role="presentation"><a class="nav-link" 
-                            style="padding-left: 16px !important; height: 36px !important;" href="#">Others</a></li>     
+                    <li class="nav-item" role="presentation"><a class="nav-link" style="background-color: #c64327 !important; color: #ffffff !important;" href="/POS">Point of Sale</a></li>
                     {{#if isAdmin}}
                         <li class="nav-item" role="presentation"><a class="nav-link" href="/products">Products</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="/supplies">Inventory</a></li>
@@ -102,26 +84,72 @@
                     </ul>
             </div>
             </nav>
+            <div class="category">
+                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'ps')">Party Set</button>
+                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'bd')">Baked Dishes</button>
+                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'adb')">Breakfast</button>
+                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'brm')">Beef</button>
+                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'prm')">Pork</button>
+                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'crm')">Chicken</button>
+                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn active" onclick="openDiv(event, 'ac')">Ala Carte</button>
+            </div>
             <div class="container-fluid">
-                <div class="col-6">
+                <div id="ac" class="col-6 divmenu" style="display: block;">
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">Ala Carte</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="container text-center">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Ala Carte 1
+                                        </button>
+                                    </div>                                   
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Ala Carte 2
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Ala Carte 3
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="crm" class="col-6 divmenu">
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">Chicken Rice Meals</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="container text-center">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Chicken 1
+                                        </button>
+                                    </div>                                   
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Chicken 2
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Chicken 3
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="prm" class="col-6 divmenu">
                     <div class="card shadow mb-3">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 font-weight-bold">Pork Rice Meals</p>
                         </div>
                         <div class="card-body">
-                            <div class="container text-center pt-4">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <img src="public/img/p1.png" class="img-fluid">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="public/img/p2.png" class="img-fluid">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="public/img/p3.png" class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
                             <div class="container text-center">
                                 <div class="row">
                                     <div class="col-4">
@@ -134,6 +162,106 @@
                                     </div>
                                     <div class="col-4">
                                         <button type="button" class="btn btn-primary btn-sm prod-btn">Grilled Pork Belly
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="brm" class="col-6 divmenu">
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">Beef Rice Meals</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="container text-center">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Beef 1
+                                        </button>
+                                    </div>                                   
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Beef 2
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Beef 3
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="adb" class="col-6 divmenu">
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">All Day Breakfast</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="container text-center">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">All Day Breakfast 1
+                                        </button>
+                                    </div>                                   
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">All Day Breakfast 2
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">All Day Breakfast 3
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="bd" class="col-6 divmenu">
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">Baked Dishes</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="container text-center">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Baked Spaghetti
+                                        </button>
+                                    </div>                                   
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Kani Baked Sushi
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Salmon Baked Sushi
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ps" class="col-6 divmenu">
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">Party Set Meals</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="container text-center">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Set A
+                                        </button>
+                                    </div>                                   
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Set B
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Set C
                                         </button>
                                     </div>
                                 </div>

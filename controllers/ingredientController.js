@@ -6,7 +6,7 @@ exports.getAllIngredients = (param, callback) =>{
   ingredientModel.getAll(param, (err, ingredients) => {
     if (err) throw err;
       
-    const ingredientsObjects = [];
+    var ingredientsObjects = [];
       
     ingredients.forEach(function(doc) {
       ingredientsObjects.push(doc.toObject());

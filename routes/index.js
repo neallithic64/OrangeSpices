@@ -385,9 +385,10 @@ router.get('/profitability', (req, res) => {
 });
 
 router.get('/getIngredients', (req, res) => {
-  console.log("Pasok sa index.js");
-  ingredientController.getIngredientName('', ing => res.status(200).send(ing));
-  console.log("Lagpas na");
+  ingredientController.getIngredientName(req.query.name, ing => {
+        console.log(ing);
+        res.status(200).send(ing);
+  });
 });
 
 // Logout

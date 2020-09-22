@@ -1,3 +1,7 @@
+.login-btn{
+    font-size: 15px !important;
+}
+
 .login-clean {
   background: url('../img/bg.jpg');
   background-size: cover;
@@ -6,10 +10,9 @@
 
 .login-clean form {
   max-width: 320px;
-  width: 90%;
-  min-height: 450px;
+  height: 465px;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: #ffffffcb;
   padding: 40px;
   border-radius: 4px;
   color: #505e6c;
@@ -18,7 +21,7 @@
 
 .login-clean .logo-img{
   padding-left: 45px; 
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .login-clean form .form-control {
@@ -38,9 +41,8 @@
   background: #f47639;
   border: none;
   border-radius: 4px;
-  padding: 11px;
+  padding: 8px;
   box-shadow: none;
-  margin-top: 26px;
   text-shadow: none;
   outline: none !important;
 }
