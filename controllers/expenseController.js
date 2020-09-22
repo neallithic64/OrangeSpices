@@ -40,7 +40,7 @@ exports.addExpense = (req, res) => {
             else {
               console.log("Expense added!");
               req.flash('success_msg', 'Expense added!');
-              res.redirect('/accounting');
+              res.redirect('/expense');
             }
           })
         }

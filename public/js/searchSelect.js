@@ -1,9 +1,10 @@
 $(function() {
     $('#select-ingredient').selectize({
-        options: [],
-        labelField: 'name',
+        options: [{ingredientName: "Butter", value: "Butter"}, {ingredientName: "Baking Powder", value: "Baking Powder"},
+                  {ingredientName: "Chicken", value: "Chicken"}],
+        labelField: 'ingredientName',
         valueField: 'value',
-        searchField: ['name'],
+        searchField: ['ingredientName'],
         placeholder: 'Select ingredient',
         maxItems: 1,
         delimiter: ',',
