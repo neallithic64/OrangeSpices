@@ -22,18 +22,14 @@ exports.addProduct = (req, res) => {
   const errors = validationResult(req);
   if (errors.isEmpty())
   {
-    const { prodName, category, productPrice } = req.body;
+    const { prodName, category, productPrice, ingredientName } = req.body;
 
     productModel.getOne({ prodName: {$regex: prodName, $options:'i'}}, (err, result) => {
       if (result) {
 				req.flash('error_msg', 'Already have that product. Try again.');
 				res.redirect('/products/add');
       } 
-
       else {
-        console.log(prodName);
-        console.log(category);
-        console.log(productPrice);
           var product = {
             prodName: prodName,
             category: category,

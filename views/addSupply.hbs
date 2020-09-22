@@ -9,7 +9,7 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Point of Sale</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/POS">Point of Sale</a></li>
                     {{#if isAdmin}}
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/products">Products</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/supplies">Inventory</a></li>
@@ -51,7 +51,10 @@
                         </div>
                         <div class="col-4">
                             <label for="ingName" style="font-weight: bold;">Name (Ingredient)</label>
-                            <select id="select-ingredient" name="ingredientName"></select>
+                            <select id="select-ingredient" name="ingredientName" placeholder="Select ingredient">
+                                <option selected="true" disabled="disabled">Select ingredient</option>
+                                {{>ingredientName}}
+                            </select>
                             <p id="ingNameError" class="error"></p>
                         </div>
                         <div class="col-4">

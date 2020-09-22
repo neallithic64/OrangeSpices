@@ -391,6 +391,20 @@ router.get('/getIngredients', (req, res) => {
   });
 });
 
+router.get('/getSupplies', (req, res) => {
+  supplyController.getSupplyName(req.query.name, supply => {
+        console.log(supply);
+        res.status(200).send(supply);
+  });
+});
+
+router.get('/getExpense', (req, res) => {
+  expenseController.getExpenseName(req.query.name, expense => {
+        console.log(expense);
+        res.status(200).send(expense);
+  });
+});
+
 // Logout
 router.get('/logout', loggedIn, userController.logoutUser);
 

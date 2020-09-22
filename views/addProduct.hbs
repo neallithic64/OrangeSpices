@@ -9,7 +9,7 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Point of Sale</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/POS">Point of Sale</a></li>
                     {{#if isAdmin}}
                     <li class="nav-item" role="presentation"><a class="nav-link" 
                         style="background-color: #c64327 !important; color: #ffffff !important;" href="/products">Products</a></li>
@@ -66,9 +66,9 @@
                             <p style="font-weight: bold;">Ingredients</p>
                             <form class="form-inline" id="ingList">
                                 <div class="form-group mb-2">
-                                    <select class="form-control">
-                                        <option id="name">Ingredient</option>
-                                        {{{ingredientName}}}
+                                    <select id="selectIng" name="ingredientName">
+                                        <option selected="true" disabled="disabled">Select ingredient</option>
+                                        {{>ingredientName}}
                                     </select>
                                 </div>
                                 <div class="form-group mx-sm-3 mb-2">
