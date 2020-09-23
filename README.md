@@ -4,9 +4,7 @@
 1. Clone this repository: `git clone https://github.com/deasisjhose/OrangeSpices`
 2. Navigate to the directory
 3. Install the dependencies: `npm install`
-4. First, run `node add_data.js` to add data manually.
-5. Stop the server using CTRL+C (Windows) or control (^) + C (Mac).
-6. Then, run the server: `node app.js`
+4. Then, run the server: `node app.js`
     * Navigate to `http://localhost:3000/` in the browser to view the app.
 
 ### Running tests

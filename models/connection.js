@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const databaseURL = 'mongodb://localhost:27017/o&sdb';
+const databaseURL = 'mongodb+srv://admin:admin@itisdev-pos.3wffs.mongodb.net/o&sdb?retryWrites=true&w=majority';
 
 const options = {
   useNewUrlParser: true,
