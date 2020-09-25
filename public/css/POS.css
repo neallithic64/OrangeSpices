@@ -16,6 +16,7 @@
 
 .category button{
     float: right !important;
+    font-size: 10px !important;
 }
 
 .div[class*="divmenu"]:first-of-type {
@@ -124,6 +125,17 @@
     border: 2px solid #f47639 !important;
     font-size: 10px !important;
     float: right !important;
+    height: 50px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.prod-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -.75rem;
+    margin-left: -.75rem;
+    margin-bottom: 20px;
 }
 
 .list-group{
