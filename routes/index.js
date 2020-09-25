@@ -49,7 +49,14 @@ router.get('/POS', loggedIn, (req, res) => {
                   else {
                     res.render('POS', { 
                       isAdmin: false, 
-                      category: req.session.username
+                      username: req.session.username,
+                      alaCarte: alaCarte,
+                      CRM: CRM,
+                      PRM: PRM,
+                      BRM: BRM,
+                      ADB: ADB,
+                      BSPAG: BSPAG,
+                      BSUSH: BSUSH
                     })
                   }
                 })
