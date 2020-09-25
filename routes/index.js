@@ -25,22 +25,39 @@ router.get('/login', loggedOut, (req, res) => {
 // Get POS [landing] page
 router.get('/POS', loggedIn, (req, res) => {
   console.log("Read POS successful!");
-  userController.getID(req.session.user, (user) => {
-    productController.getProductName(req, products => {
-      console.log(products);
-      if(req.session.username == "admin"){
-        res.render('POS', { 
-          isAdmin: true,
-          username: req.session.username,
-          product: products
+  userController.getID(req.session.user, user => {
+    productController.getAlaCarte(req, alaCarte => {
+      productController.getChickenRiceMeal(req, CRM => {
+        productController.getPorkRiceMeal(req, PRM => {
+          productController.getBeefRiceMeal(req, BRM => {
+            productController.getAllDayBreakfast(req, ADB => {
+              productController.getBakedSpaghetti(req, BSPAG => {
+                productController.getBakedSushi(req, BSUSH => {
+                  if(req.session.username == "admin"){
+                    res.render('POS', {
+                      isAdmin: true,
+                      username: req.session.username,
+                      alaCarte: alaCarte,
+                      CRM: CRM,
+                      PRM: PRM,
+                      BRM: BRM,
+                      ADB: ADB,
+                      BSPAG: BSPAG,
+                      BSUSH: BSUSH
+                    })
+                  }
+                  else {
+                    res.render('POS', { 
+                      isAdmin: false, 
+                      category: req.session.username
+                    })
+                  }
+                })
+              })
+            })
+          })
         })
-      }
-      else {
-        res.render('POS', { 
-          isAdmin: false, 
-          username: req.session.username
-        })
-      }
+      })
     })
   })
 });
@@ -48,8 +65,8 @@ router.get('/POS', loggedIn, (req, res) => {
 // Get products page
 router.get('/products', loggedIn, (req, res) => {
   console.log("Read products successful!");
-  productController.getAllProducts(req, (products) => {
-    userController.getID(req.session.user, (user) => {
+  productController.getAllProducts(req, products => {
+    userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('products', { 
           isAdmin: true,
@@ -69,7 +86,7 @@ router.get('/products', loggedIn, (req, res) => {
 // Get create products page
 router.get('/products/add', loggedIn, (req, res) => {
   console.log("Read add product successful!");
-  ingredientController.getAllIngredients(req, (ingredients) => {
+  ingredientController.getAllIngredients(req, ingredients => {
     unitController.getAllUnits(req, (units) => {
       userController.getID(req.session.user, (user) => {
         if(req.session.username == "admin"){
@@ -94,8 +111,8 @@ router.get('/products/add', loggedIn, (req, res) => {
 // Get inventory [supplies] page
 router.get('/supplies', loggedIn, (req, res) => {
   console.log("Read supplies successful!");
-  supplyController.getAllSupplies(req, (supplies) => {
-    userController.getID(req.session.user, (user) => {
+  supplyController.getAllSupplies(req, supplies => {
+    userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('supplies', { 
           isAdmin: true,
@@ -115,8 +132,8 @@ router.get('/supplies', loggedIn, (req, res) => {
 // Get add supply page
 router.get('/supplies/add', loggedIn, (req, res) => {
   console.log("Read add supply successful!");
-  ingredientController.getIngredientName(req, (ingredients) => {
-    userController.getID(req.session.user, (user) => {
+  ingredientController.getIngredientName(req, ingredients => {
+    userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('addSupply', { 
           isAdmin: true,
@@ -136,8 +153,8 @@ router.get('/supplies/add', loggedIn, (req, res) => {
 // Get inventory [ingredients] page
 router.get('/ingredients', loggedIn, (req, res) => {
   console.log("Read ingredients successful!");
-  ingredientController.getAllIngredients(req, (ingredients) => {
-    userController.getID(req.session.user, (user) => {
+  ingredientController.getAllIngredients(req, ingredients => {
+    userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('ingredients', { 
           isAdmin: true,
@@ -157,8 +174,8 @@ router.get('/ingredients', loggedIn, (req, res) => {
 // Get add ingredient page
 router.get('/ingredients/add', loggedIn, (req, res) => {
   console.log("Read add ingredient successful!");
-  unitController.getAllUnits(req, (units) => {
-    userController.getID(req.session.user, (user) => {
+  unitController.getAllUnits(req, units => {
+    userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('addIngredient', { 
           isAdmin: true,
@@ -178,8 +195,8 @@ router.get('/ingredients/add', loggedIn, (req, res) => {
 // Get procurement page
 router.get('/procurement', loggedIn, (req, res) => {
   console.log("Read procurement successful!");
-  purchaseController.getAllPurchase(req, (purchase) => {
-    userController.getID(req.session.user, (user) => {
+  purchaseController.getAllPurchase(req, purchase => {
+    userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('procurement', { 
           isAdmin: true,
@@ -199,8 +216,8 @@ router.get('/procurement', loggedIn, (req, res) => {
 // Get add purchase page
 router.get('/purchase/add', (req, res) => {
   console.log("Read add purchase successful!");
-  supplyController.getSupplyName(req, (supplies) => {
-    userController.getID(req.session.user, (user) => {
+  supplyController.getSupplyName(req, supplies => {
+    userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('addPurchase', { 
           isAdmin: true,
@@ -220,8 +237,8 @@ router.get('/purchase/add', (req, res) => {
 // Get accounting [expense details] page
 router.get('/expenseDetails', loggedIn, (req, res) => {
   console.log("Read expense details successful!");
-  expenseDetailsController.getAllDetails(req, (details) => {
-    userController.getID(req.session.user, (user) => {
+  expenseDetailsController.getAllDetails(req, details => {
+    userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('expenseDetails', { 
           isAdmin: true,
@@ -241,8 +258,8 @@ router.get('/expenseDetails', loggedIn, (req, res) => {
 // Get accounting [add expense details] page
 router.get('/expenseDetails/add', loggedIn, (req, res) => {
   console.log("Read add details successful!");
-  expenseController.getExpenseName(req, (expense) => {
-    userController.getID(req.session.user, (user) => {
+  expenseController.getExpenseName(req, expense => {
+    userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('addExpenseDetail', { 
           isAdmin: true,
@@ -263,8 +280,8 @@ router.get('/expenseDetails/add', loggedIn, (req, res) => {
 // Get expense page
 router.get('/expense', loggedIn, (req, res) => {
   console.log("Read expense successful!");
-  expenseController.getAllExpense(req, (expense) => {
-    userController.getID(req.session.user, (user) => {
+  expenseController.getAllExpense(req, expense => {
+    userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('expense', { 
           isAdmin: true,
@@ -284,8 +301,8 @@ router.get('/expense', loggedIn, (req, res) => {
 // Get add expense page
 router.get('/expense/add', (req, res) => {
   console.log("Read add expense successful!");
-  expenseController.getExpenseName(req, (expense) => {
-    userController.getID(req.session.user, (user) => {
+  expenseController.getExpenseName(req, expense => {
+    userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('addExpense', { 
           isAdmin: true,
@@ -305,8 +322,8 @@ router.get('/expense/add', (req, res) => {
 // Get order history report page
 router.get('/order_history', (req, res) => {
   console.log("Read order history successful!");
-  //expenseController.getExpenseName(req, (expense) => {
-    //userController.getID(req.session.user, (user) => {
+  //expenseController.getExpenseName(req, expense => {
+    //userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('orderHistory', { 
           isAdmin: true,
@@ -326,8 +343,8 @@ router.get('/order_history', (req, res) => {
 // Get sales report page
 router.get('/sales_report', (req, res) => {
   console.log("Read sales report successful!");
-  //expenseController.getExpenseName(req, (expense) => {
-    //userController.getID(req.session.user, (user) => {
+  //expenseController.getExpenseName(req, expense => {
+    //userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('salesReport', { 
           isAdmin: true,
@@ -347,8 +364,8 @@ router.get('/sales_report', (req, res) => {
 // Get inventory report page
 router.get('/inventory_report', (req, res) => {
   console.log("Read inventory report successful!");
-  //expenseController.getExpenseName(req, (expense) => {
-    //userController.getID(req.session.user, (user) => {
+  //expenseController.getExpenseName(req, expense => {
+    //userController.getID(req.session.user, user => {
       if(req.session.username == "admin"){
         res.render('inventoryReport', { 
           isAdmin: true,
@@ -368,8 +385,8 @@ router.get('/inventory_report', (req, res) => {
 // Get  profitability page
 router.get('/profitability', (req, res) => {
   console.log("Read profitability report successful!");
-  //expenseController.getExpenseName(req, (expense) => {
-    //userController.getID(req.session.user, (user) => {
+  //expenseController.getExpenseName(req, expense => {
+    //userController.getID(req.session.user, user => {
       if(req.session.username === "admin"){
         res.render('profitability', { 
           isAdmin: true,

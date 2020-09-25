@@ -85,12 +85,12 @@
             </div>
             </nav>
             <div class="category">
-                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'ps')">Party Set</button>
-                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'bd')">Baked Dishes</button>
+                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'bsush')">Baked Sushi</button>
+                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'bspag')">Baked Spaghetti</button>
                 <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'adb')">Breakfast</button>
-                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'brm')">Beef</button>
-                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'prm')">Pork</button>
                 <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'crm')">Chicken</button>
+                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'prm')">Pork</button>
+                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'brm')">Beef</button>
                 <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn active" href="/ala-carte" onclick="openDiv(event, 'ac')">Ala Carte</button>
             </div>
             <div class="container-fluid">
@@ -102,7 +102,11 @@
                         <div class="card-body">
                             <div class="container text-center">
                                 <div class="row">
-                                    {{>alaCarte}}
+                                    {{#each alaCarte}}
+                                        <div class="col-4">
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                        </div>
+                                    {{/each}}
                                 </div>
                             </div>
                         </div>
@@ -116,18 +120,11 @@
                         <div class="card-body">
                             <div class="container text-center">
                                 <div class="row">
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Chicken 1
-                                        </button>
-                                    </div>                                   
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Chicken 2
-                                        </button>
-                                    </div>
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Chicken 3
-                                        </button>
-                                    </div>
+                                    {{#each CRM}}
+                                        <div class="col-4">
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                        </div>
+                                    {{/each}}
                                 </div>
                             </div>
                         </div>
@@ -141,18 +138,11 @@
                         <div class="card-body">
                             <div class="container text-center">
                                 <div class="row">
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Lechon Kawali
-                                        </button>
-                                    </div>                                   
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Breaded Porkchop
-                                        </button>
-                                    </div>
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Grilled Pork Belly
-                                        </button>
-                                    </div>
+                                    {{#each PRM}}
+                                        <div class="col-4">
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                        </div>
+                                    {{/each}}
                                 </div>
                             </div>
                         </div>
@@ -166,18 +156,11 @@
                         <div class="card-body">
                             <div class="container text-center">
                                 <div class="row">
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Beef 1
-                                        </button>
-                                    </div>                                   
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Beef 2
-                                        </button>
-                                    </div>
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Beef 3
-                                        </button>
-                                    </div>
+                                    {{#each BRM}}
+                                        <div class="col-4">
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                        </div>
+                                    {{/each}}
                                 </div>
                             </div>
                         </div>
@@ -191,68 +174,47 @@
                         <div class="card-body">
                             <div class="container text-center">
                                 <div class="row">
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">All Day Breakfast 1
-                                        </button>
-                                    </div>                                   
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">All Day Breakfast 2
-                                        </button>
-                                    </div>
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">All Day Breakfast 3
-                                        </button>
-                                    </div>
+                                    {{#each ADB}}
+                                        <div class="col-4">
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                        </div>
+                                    {{/each}}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="bd" class="col-6 divmenu">
+                <div id="bspag" class="col-6 divmenu">
                     <div class="card shadow mb-3">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">Baked Dishes</p>
+                            <p class="text-primary m-0 font-weight-bold">Baked Spaghetti</p>
                         </div>
                         <div class="card-body">
                             <div class="container text-center">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Baked Spaghetti
-                                        </button>
-                                    </div>                                   
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Kani Baked Sushi
-                                        </button>
-                                    </div>
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Salmon Baked Sushi
-                                        </button>
-                                    </div>
+                                <div class="row">                                 
+                                    {{#each BSPAG}}
+                                        <div class="col-4">
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                        </div>
+                                    {{/each}}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="ps" class="col-6 divmenu">
+                <div id="bsush" class="col-6 divmenu">
                     <div class="card shadow mb-3">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">Party Set Meals</p>
+                            <p class="text-primary m-0 font-weight-bold">Baked Sushi</p>
                         </div>
                         <div class="card-body">
                             <div class="container text-center">
                                 <div class="row">
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Set A
-                                        </button>
-                                    </div>                                   
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Set B
-                                        </button>
-                                    </div>
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Set C
-                                        </button>
-                                    </div>
+                                    {{#each BSUSH}}
+                                        <div class="col-4">
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                        </div>
+                                    {{/each}}
                                 </div>
                             </div>
                         </div>
