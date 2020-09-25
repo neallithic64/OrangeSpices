@@ -8,9 +8,9 @@ const loginValidation = [
 ];
 
 const addProductValidation = [
-  // Brand should not be empty
+  // Product name should not be empty
   body('prodName').not().isEmpty().withMessage("Please enter product name."),
-  // Unit quantity should not be empty
+  // Product price should not be empty
   body('prodPrice').not().isEmpty().withMessage("Please enter product price."),
 ]
 

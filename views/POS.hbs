@@ -91,7 +91,7 @@
                 <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'brm')">Beef</button>
                 <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'prm')">Pork</button>
                 <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn" onclick="openDiv(event, 'crm')">Chicken</button>
-                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn active" onclick="openDiv(event, 'ac')">Ala Carte</button>
+                <button type="button" class="btn btn-primary btn-sm prod-btn categorybtn active" href="/ala-carte" onclick="openDiv(event, 'ac')">Ala Carte</button>
             </div>
             <div class="container-fluid">
                 <div id="ac" class="col-6 divmenu" style="display: block;">
@@ -102,18 +102,7 @@
                         <div class="card-body">
                             <div class="container text-center">
                                 <div class="row">
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Ala Carte 1
-                                        </button>
-                                    </div>                                   
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Ala Carte 2
-                                        </button>
-                                    </div>
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-primary btn-sm prod-btn">Ala Carte 3
-                                        </button>
-                                    </div>
+                                    {{>alaCarte}}
                                 </div>
                             </div>
                         </div>

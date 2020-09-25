@@ -22,8 +22,7 @@ exports.addProduct = (req, res) => {
   const errors = validationResult(req);
   if (errors.isEmpty())
   {
-    const { prodName, category, productPrice, ingredientName } = req.body;
-
+    const { prodName, category, prodPrice, ingredientName } = req.body;
     productModel.getOne({ prodName: {$regex: prodName, $options:'i'}}, (err, result) => {
       if (result) {
 				req.flash('error_msg', 'Already have that product. Try again.');
@@ -33,7 +32,7 @@ exports.addProduct = (req, res) => {
           var product = {
             prodName: prodName,
             category: category,
-            prodPrice: productPrice
+            prodPrice: prodPrice
 
            //ingredientID: ingredient,
             //quantityNeeded: quantity
@@ -64,7 +63,7 @@ exports.addProduct = (req, res) => {
 }; 
 
 exports.getProductName = (param, callback) => {
-  productModel.getName({prodName : true}, (err, ingredients) => {
+  productModel.getProduct({prodName: true, category: true}, (err, products) => {
     if (err) throw err; 
 
     const productsObjects = [];

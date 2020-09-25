@@ -30,3 +30,10 @@ exports.getOne = function(query, next) {
     next(err, prod);
   });
 };
+
+// Get product names and category
+exports.getProduct = function(req, next) {
+  Product.find({}, {prodName: 1, category: 1, _id:1}, function(err, product) { 
+    next(err, product); 
+  });
+};

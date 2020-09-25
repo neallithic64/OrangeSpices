@@ -26,21 +26,24 @@ router.get('/login', loggedOut, (req, res) => {
 router.get('/POS', loggedIn, (req, res) => {
   console.log("Read POS successful!");
   userController.getID(req.session.user, (user) => {
-    if(req.session.username == "admin"){
-      res.render('POS', { 
-        isAdmin: true,
-        username: req.session.username
-      })
-    }
-    else {
-      res.render('POS', { 
-        isAdmin: false, 
-        username: req.session.username
-      })
-    }
+    productController.getProductName(req, products => {
+      console.log(products);
+      if(req.session.username == "admin"){
+        res.render('POS', { 
+          isAdmin: true,
+          username: req.session.username,
+          product: products
+        })
+      }
+      else {
+        res.render('POS', { 
+          isAdmin: false, 
+          username: req.session.username
+        })
+      }
+    })
   })
 });
-
 
 // Get products page
 router.get('/products', loggedIn, (req, res) => {
@@ -66,7 +69,6 @@ router.get('/products', loggedIn, (req, res) => {
 // Get create products page
 router.get('/products/add', loggedIn, (req, res) => {
   console.log("Read add product successful!");
-
   ingredientController.getAllIngredients(req, (ingredients) => {
     unitController.getAllUnits(req, (units) => {
       userController.getID(req.session.user, (user) => {
