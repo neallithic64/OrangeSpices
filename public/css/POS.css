@@ -16,7 +16,7 @@
 
 .category button{
     float: right !important;
-    font-size: 10px !important;
+    font-size: 9.15px !important;
 }
 
 .div[class*="divmenu"]:first-of-type {
@@ -30,10 +30,10 @@
 
 .category{
     text-align: left !important;
-    width: 450px !important;
+    width: 460px !important;
     height: 32px !important;
     margin-bottom: 5px;
-    margin-left: 30px;
+    margin-left: 38px;
 }
 
 .category .btn{
