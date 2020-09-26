@@ -9,7 +9,7 @@ const purchaseController = require('../controllers/purchaseController');
 const expenseController = require('../controllers/expenseController');
 const expenseDetailsController = require('../controllers/expenseDetailsController');
 const { loginValidation, addProductValidation, addSupplyValidation, addIngredientValidation, 
-        addPurchaseValidation, addExpenseValidation, addExpenseDetailsValidation } = require('../validators.js');
+        addPurchaseValidation, purchaseOrderValidation, addExpenseValidation, addExpenseDetailsValidation } = require('../validators.js');
 const { loggedIn, loggedOut } = require('../middlewares/checkAuth');
 
 router.get('/', (req, res) => {
@@ -245,6 +245,31 @@ router.get('/purchase/add', (req, res) => {
   })
 });
 
+// Get purchase order page
+router.get('/purchase/order', (req, res) => {
+  console.log("Read purchase order successful!");
+  ingredientController.getIngredientName(req, ingredients => {
+    unitController.getAllUnits(req, (units) => {
+      userController.getID(req.session.user, user => {
+        if(req.session.username == "admin"){
+          res.render('purchaseOrder', { 
+            isAdmin: true,
+            ingName: ingredients,
+            unit: units
+          })
+        }
+        else {
+          res.render('purchaseOrder', { 
+            isAdmin: false, 
+            ingName: ingredients,
+            unit: units
+          })
+        }
+      })
+    })
+  })
+});
+
 // Get accounting [expense details] page
 router.get('/expenseDetails', loggedIn, (req, res) => {
   console.log("Read expense details successful!");
@@ -444,6 +469,7 @@ router.post('/products/add', loggedIn, addProductValidation, productController.a
 router.post('/supplies/add', loggedIn, addSupplyValidation, supplyController.addSupply);
 router.post('/ingredients/add', loggedIn, addIngredientValidation, ingredientController.addIngredient);
 router.post('/purchase/add', loggedIn, addPurchaseValidation, purchaseController.addPurchase);
+router.post('/purchase/order', loggedIn, purchaseOrderValidation);
 router.post('/expense/add', loggedIn, addExpenseValidation, expenseController.addExpense);
 router.post('/expenseDetails/add', loggedIn, addExpenseDetailsValidation, expenseDetailsController.addExpenseDetails);
 router.post('/supplies/check', loggedIn, discrepancyController.checkDiscrepancy);

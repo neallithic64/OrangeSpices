@@ -33,6 +33,17 @@ const addPurchaseValidation = [
   body('purchPrice').not().isEmpty().withMessage("Please enter purchase price.")
 ]
 
+const purchaseOrderValidation = [
+  // Supplier name should not be empty
+  body('supplierName').not().isEmpty().withMessage("Please enter supplier name."),
+  // Supplier email should be valid and not be empty
+  body('email').not().isEmpty().withMessage("Please enter email.").isEmail().withMessage("Please enter valid email."),
+  // Quantity should not be empty
+  body('quantity').not().isEmpty().withMessage("Please enter quantity."),
+  // Num items should not be empty
+  body('numItems').not().isEmpty().withMessage("Please enter number of items.")
+]
+
 const addExpenseValidation = [
   // Expense name should not be empty
   body('expenseName').not().isEmpty().withMessage("Please enter expense name.")
@@ -44,4 +55,4 @@ const addExpenseDetailsValidation = [
 ]
 
 module.exports = { loginValidation, addProductValidation, addSupplyValidation, addIngredientValidation, 
-addPurchaseValidation, addExpenseValidation, addExpenseDetailsValidation };
+  purchaseOrderValidation, addPurchaseValidation,  addExpenseValidation, addExpenseDetailsValidation };

@@ -63,25 +63,27 @@
                         </form>
                         <div class="col-12">
                             <p style="font-weight: bold;">Ingredients</p>
+                            <div class="row">
                             <form class="form-inline" id="ingList">
-                                <div class="form-group mb-2">
-                                    <select id="selectIng" name="ingredientName">
+                                <div class="form-group" style="height: 40px;">
+                                    <select id="selectIng" name="ingredientName" style="width:215px;">
                                         <option selected="true" disabled="disabled">Select ingredient</option>
                                         {{>ingredientName}}
                                     </select>
                                 </div>
-                                <div class="form-group mx-sm-3 mb-2">
+                                <div class="form-group">
                                     <label for="quantity" class="sr-only">Quantity</label>
-                                    <input type="number" class="form-control" id="quantity" placeholder="Quantity" min="1">
+                                    <input type="number" class="form-control" style="width:120px; height: 40px; margin-right: 20px; margin-left: 20px;" id="quantity" placeholder="Quantity" min="1">
                                 </div>
-                                <div class="form-group mb-2">
-                                    <select class="form-control">
+                                <div class="form-group">
+                                    <select class="form-control" style="width:100px; height: 40px;">
                                         <option id="unit">Unit</option>
                                         {{>units}}
                                     </select>
                                 </div>
-                                <button style="margin-left: 25px;" type="button" id="addIngredient" class="btn btn-primary mb-2 add-btn">+ Add</button>
+                                <button style="margin-left: 25px; height: 40px;" type="button" id="addIngredient" class="btn btn-primary add-btn">+ Add</button>
                             </form>
+                            </div>
                         </div>                               
                     </div>
                 </div>
