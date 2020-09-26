@@ -33,32 +33,36 @@ router.get('/POS', loggedIn, (req, res) => {
             productController.getAllDayBreakfast(req, ADB => {
               productController.getBakedSpaghetti(req, BSPAG => {
                 productController.getBakedSushi(req, BSUSH => {
-                  if(req.session.username == "admin"){
-                    res.render('POS', {
-                      isAdmin: true,
-                      username: req.session.username,
-                      alaCarte: alaCarte,
-                      CRM: CRM,
-                      PRM: PRM,
-                      BRM: BRM,
-                      ADB: ADB,
-                      BSPAG: BSPAG,
-                      BSUSH: BSUSH
-                    })
-                  }
-                  else {
-                    res.render('POS', { 
-                      isAdmin: false, 
-                      username: req.session.username,
-                      alaCarte: alaCarte,
-                      CRM: CRM,
-                      PRM: PRM,
-                      BRM: BRM,
-                      ADB: ADB,
-                      BSPAG: BSPAG,
-                      BSUSH: BSUSH
-                    })
-                  }
+                  productController.getAllProducts (req, ALL => {
+                    if(req.session.username == "admin"){
+                      res.render('POS', {
+                        isAdmin: true,
+                        username: req.session.username,
+                        alaCarte: alaCarte,
+                        CRM: CRM,
+                        PRM: PRM,
+                        BRM: BRM,
+                        ADB: ADB,
+                        BSPAG: BSPAG,
+                        BSUSH: BSUSH,
+                        ALL: ALL
+                      })
+                    }
+                    else {
+                      res.render('POS', { 
+                        isAdmin: false, 
+                        username: req.session.username,
+                        alaCarte: alaCarte,
+                        CRM: CRM,
+                        PRM: PRM,
+                        BRM: BRM,
+                        ADB: ADB,
+                        BSPAG: BSPAG,
+                        BSUSH: BSUSH,
+                        ALL: ALL
+                      })
+                    }
+                  })
                 })
               })
             })

@@ -59,10 +59,10 @@
                 <button type="button" class="btn btn-primary btn-sm categorybtn" onclick="openDiv(event, 'prm')">Pork</button>
                 <button type="button" class="btn btn-primary btn-sm categorybtn" onclick="openDiv(event, 'brm')">Beef</button>
                 <button type="button" class="btn btn-primary btn-sm categorybtn" onclick="openDiv(event, 'ac')">Ala Carte</button>
-                <button type="button" class="btn btn-primary btn-sm categorybtn active" href="#" onclick="openDiv(event, 'ap')">All</button>
+                <button type="button" class="btn btn-primary btn-sm categorybtn active" href="#" onclick="openDiv(event, 'all')">All</button>
            </div>
             <div class="container-fluid">
-                <div id="ap" class="col-6 divmenu" style="display: block;">
+                <div id="all" class="col-6 divmenu" style="display: block;">
                     <div class="card shadow mb-3">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 font-weight-bold">All Products</p>
@@ -70,7 +70,7 @@
                         <div class="card-body">
                             <div class="container text-center">
                                 <div class="prod-row">
-                                    {{#each alaCarte}}
+                                    {{#each ALL}}
                                         <div class="col-4">
                                             <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
                                         </div>
