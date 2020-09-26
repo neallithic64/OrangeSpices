@@ -88,8 +88,7 @@ exports.addPurchase = (req, res) => {
                                             req.flash('error_msg', 'Could not ingredient.');
                                             res.redirect('/supplies');
                                         } else {
-                                            var ingQty = ingredient.totalQuantity;
-                                            console.log(ingQty);
+
                                             var ingUpd = {
                                                 $inc: {
                                                     totalQuantity: total
