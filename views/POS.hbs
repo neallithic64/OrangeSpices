@@ -72,7 +72,7 @@
                                 <div class="prod-row">
                                     {{#each ALL}}
                                         <div class="col-4">
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -90,7 +90,7 @@
                                 <div class="prod-row">
                                     {{#each alaCarte}}
                                         <div class="col-4">
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -108,7 +108,7 @@
                                 <div class="prod-row">
                                     {{#each CRM}}
                                         <div class="col-4">
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -126,7 +126,7 @@
                                 <div class="prod-row">
                                     {{#each PRM}}
                                         <div class="col-4">
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -144,7 +144,7 @@
                                 <div class="prod-row">
                                     {{#each BRM}}
                                         <div class="col-4">
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -162,7 +162,7 @@
                                 <div class="prod-row">
                                     {{#each ADB}}
                                         <div class="col-4">
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -180,7 +180,7 @@
                                 <div class="prod-row">                                 
                                     {{#each BSPAG}}
                                         <div class="col-4">
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -198,7 +198,7 @@
                                 <div class="prod-row">
                                     {{#each BSUSH}}
                                         <div class="col-4">
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn">{{prodName}}</button>
+                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -239,6 +239,25 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div id="myModal" class="modal" role="dialog" style="margin-top: 90px;">
+            <div class="modal-dialog" style="width: 300px;">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title font-weight-bold" style="color: #f47639 !important;">Quantity</h5>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" style="background-color: #80C376 !important; color: #ffffff !important; border: 2px solid #80C376 !important;">Save</button>
+                    <button type="button" class="btn btn-primary" style="background-color: #c64327 !important; color: #ffffff !important; border: 2px solid #c64327 !important;" data-dismiss="modal">Cancel</button>
+                </div>
+              </div>
             </div>
         </div>
         <footer class="bg-white sticky-footer">
