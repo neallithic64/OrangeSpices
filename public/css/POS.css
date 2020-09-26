@@ -44,7 +44,7 @@
     font-size: 18px !important;
     text-align: left !important;
     padding-top: 18px !important;
-    padding-left: 18px !important;
+    padding-left: 13px !important;
 }
 
 .cancel a{
@@ -59,7 +59,7 @@
     font-size: 18px !important;
     text-align: right !important;
     padding-top: 18px !important;
-    padding-right: 18px !important;
+    padding-right: 13px !important;
 }
 
 .bg-gradient-primary {
@@ -181,12 +181,12 @@ footer{
 
 .leftdiz{
     text-align: left !important;
-    padding-left: 18px !important;
+    padding-left: 13px !important;
 }
 
 .rightdiz{
     text-align: right !important;
-    padding-right: 18px !important;
+    padding-right: 13px !important;
 }
 
 .cancel{

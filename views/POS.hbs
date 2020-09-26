@@ -214,25 +214,29 @@
                         <div class="card-body">
                             <table class="table table-hover text-center table-sm">
                                 <thead>
-                                  <tr>
+                                    <tr>
                                     <th scope="col">Name</th>
+                                    <th scope="col">Quantity</th>
                                     <th scope="col">Price</th>
+                                    <th scope="col">Subtotal</th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                       <td class="leftdiz">Breaded Porkchop</td>
-                                      <td class="text-right pr-3">₱ 110.00</td>
+                                      <td class="text-right" style="padding-right: 32px;">2</td>
+                                      <td class="text-right" style="padding-right: 35px;">₱ 110.00</td>
+                                      <td class="text-right pr-2">₱ 220.00</td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                      <td class="bigto total leftdiz">Total</td>
-                                      <td class="bigto total rightdiz">₱ 00.00</td>
+                                      <td colspan="2" class="bigto total leftdiz">Total</td>
+                                      <td colspan="2" class="bigto total text-right pr-2">₱ 00.00</td>
                                     </tr>
                                     <tr>
-                                        <td class="cancel font-weight-bold"><a href="/POS">Cancel</a></td>
-                                        <td class="checkout font-weight-bold"><a href="#">Checkout</a></td>
+                                        <td colspan="2" class="cancel font-weight-bold"><a href="/POS">Cancel</a></td>
+                                        <td colspan="2" class="checkout font-weight-bold"><a href="#">Checkout</a></td>
                                     </tr>
                                 </tfoot>
                               </table>
