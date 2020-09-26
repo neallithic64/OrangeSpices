@@ -14,15 +14,25 @@ function openDiv(event, ingredient) {
     event.currentTarget.className += " active";
 }
 
-$(document).ready(function () { 
-    console.log("pasok");
-    $(".save-qty").click(function () { 
-        markup = "<tr><td class='leftdiz'>Ala Carte"  
-            + "</td>" + "<td class='text-right' style='padding-right: 32px;'>4</td>" 
-            + "<td class='text-right' style='padding-right: 35px;'>₱ 00.00</td>" 
-            + "<td class='text-right pr-2'>₱ 00.00</td></tr>"; 
-        tableBody = $("table tbody"); 
-        tableBody.append(markup); 
-        $("#myModal").modal('hide');
-    }); 
-}); 
+// $(document).ready(function () { 
+//     console.log("pasok");
+//     $(".save-qty").click(function () { 
+//         markup = "<tr><td class='leftdiz'>Ala Carte"  
+//             + "</td>" + "<td class='text-right' style='padding-right: 32px;'>4</td>" 
+//             + "<td class='text-right' style='padding-right: 35px;'>₱ 00.00</td>" 
+//             + "<td class='text-right pr-2'>₱ 00.00</td></tr>"; 
+//         tableBody = $("table tbody"); 
+//         tableBody.append(markup); 
+//         $("#myModal").modal('hide');
+//     }); 
+// }); 
+
+$(document).ready(function(){
+    $("button.prod-btn").click(function(){
+        var id = $(this).attr('data-id');
+        console.log(id);
+        var input = document.querySelector('input[name=id]');
+        input.setAttribute('value', id);
+        console.log(input);
+    })
+})

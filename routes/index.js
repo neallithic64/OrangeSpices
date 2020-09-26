@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const userController = require('../controllers/userController');
+const billingController = require('../controllers/billingController');
 const unitController = require('../controllers/unitController');
 const productController = require('../controllers/productController');
 const supplyController = require('../controllers/supplyController');
@@ -34,34 +35,38 @@ router.get('/POS', loggedIn, (req, res) => {
               productController.getBakedSpaghetti(req, BSPAG => {
                 productController.getBakedSushi(req, BSUSH => {
                   productController.getAllProducts (req, ALL => {
-                    if(req.session.username == "admin"){
-                      res.render('POS', {
-                        isAdmin: true,
-                        username: req.session.username,
-                        alaCarte: alaCarte,
-                        CRM: CRM,
-                        PRM: PRM,
-                        BRM: BRM,
-                        ADB: ADB,
-                        BSPAG: BSPAG,
-                        BSUSH: BSUSH,
-                        ALL: ALL
-                      })
-                    }
-                    else {
-                      res.render('POS', { 
-                        isAdmin: false, 
-                        username: req.session.username,
-                        alaCarte: alaCarte,
-                        CRM: CRM,
-                        PRM: PRM,
-                        BRM: BRM,
-                        ADB: ADB,
-                        BSPAG: BSPAG,
-                        BSUSH: BSUSH,
-                        ALL: ALL
-                      })
-                    }
+                    billingController.getAllOrders(req, orders => {
+                      if(req.session.username == "admin"){
+                        res.render('POS', {
+                          isAdmin: true,
+                          username: req.session.username,
+                          alaCarte: alaCarte,
+                          CRM: CRM,
+                          PRM: PRM,
+                          BRM: BRM,
+                          ADB: ADB,
+                          BSPAG: BSPAG,
+                          BSUSH: BSUSH,
+                          ALL: ALL,
+                          order: orders
+                        })
+                      }
+                      else {
+                        res.render('POS', { 
+                          isAdmin: false, 
+                          username: req.session.username,
+                          alaCarte: alaCarte,
+                          CRM: CRM,
+                          PRM: PRM,
+                          BRM: BRM,
+                          ADB: ADB,
+                          BSPAG: BSPAG,
+                          BSUSH: BSUSH,
+                          ALL: ALL,
+                          order: orders
+                        })
+                      }
+                    })
                   })
                 })
               })
@@ -473,5 +478,6 @@ router.post('/purchase/order', loggedIn, purchaseOrderValidation);
 router.post('/expense/add', loggedIn, addExpenseValidation, expenseController.addExpense);
 router.post('/expenseDetails/add', loggedIn, addExpenseDetailsValidation, expenseDetailsController.addExpenseDetails);
 router.post('/supplies/check', loggedIn, discrepancyController.checkDiscrepancy);
+router.post('/billing', loggedIn, billingController.addOrder);
 
 module.exports = router;

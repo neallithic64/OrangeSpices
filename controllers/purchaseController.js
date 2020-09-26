@@ -77,18 +77,15 @@ exports.addPurchase = (req, res) => {
                             };
 
                             supplyModel.updateStock(suppID, updateStock, (err, result) => {
-
                                 if (err) {
-                                    req.flash('error_msg', 'Could not update stock.');
+                                    req.flash('error_msg', 'Could not update supply stock.');
                                     res.redirect('/purchase/add');
                                 } else {
-
                                     ingredientModel.getByID(ingID, (err, ingredient) => {
                                         if (err) {
-                                            req.flash('error_msg', 'Could not ingredient.');
-                                            res.redirect('/supplies');
+                                            req.flash('error_msg', 'Could not find ingredient.');
+                                            res.redirect('/purchase/add');
                                         } else {
-
                                             var ingUpd = {
                                                 $inc: {
                                                     totalQuantity: total

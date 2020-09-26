@@ -1,6 +1,5 @@
 const productModel = require('../models/Product');
 const { validationResult } = require('express-validator');
-const prodIng = require('../models/productIngredients'); 
 
 //Getting all products
 exports.getAllProducts = (param, callback) =>{
