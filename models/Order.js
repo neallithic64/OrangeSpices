@@ -24,6 +24,6 @@ exports.add = function(obj, next) {
 };
 
 // Get all orders
-exports.getAll = (param, next) => {
-  Order.find({}).populate({path: 'productID', populate: {path: 'orderListID'}}).exec((err, orders) => next(err, orders));
+exports.getAll = (id, next) => {
+  Order.find().populate({path: 'productID', populate: {path: 'orderListID'}}).exec((err, orders) => next(err, orders));
 };

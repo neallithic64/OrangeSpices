@@ -14,3 +14,17 @@ exports.add = function(obj, next) {
       next(err, add);
   });
 };
+
+// Get orderList by ID
+exports.getByID = function(id, next) {
+  OrderList.findById(id, function(err, orderList) {
+      next(err, orderList);
+  });
+};
+
+// Delete orderList
+exports.remove = function(query, next) {
+  OrderList.findByIdAndRemove(query, function(err, orderList){
+    next(err, orderList);
+  });
+};

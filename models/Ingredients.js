@@ -36,8 +36,8 @@ exports.getName = function(req, next) {
 };
 
 // Get Ingredient by ID
-exports.getByID = function(index, next) {
-    Ingredient.findById(index, function(err, ingredient) {
+exports.getByID = function(id, next) {
+    Ingredient.findById(id, function(err, ingredient) {
         next(err, ingredient);
     });
 };

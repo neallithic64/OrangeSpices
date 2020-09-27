@@ -188,6 +188,11 @@ div .low-stock{
       text-align: center;
   }
 
+  #order_added {
+    color: #80C376;
+    text-align: center;
+}
+
   .text-muted{
     color: #5c5c5c !important;
     font-size: 15px !important;

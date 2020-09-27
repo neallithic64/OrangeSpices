@@ -37,8 +37,8 @@ exports.getName = function(req, next) {
 };
 
 // Get supply by ID
-exports.getByID = function(index, next) {
-  Supplies.findById(index, function(err, supply) {
+exports.getByID = function(id, next) {
+  Supplies.findById(id, function(err, supply) {
     next(err, supply);
   });
 };

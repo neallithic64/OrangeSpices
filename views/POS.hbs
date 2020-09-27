@@ -90,7 +90,7 @@
                                 <div class="prod-row">
                                     {{#each alaCarte}}
                                         <div class="col-4">
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
+                                            <button type="button" data-id="{{this._id}}" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -109,7 +109,7 @@
                                     {{#each CRM}}
                                         <div class="col-4">
                                             
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
+                                            <button type="button" data-id="{{this._id}}" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -128,7 +128,7 @@
                                     {{#each PRM}}
                                         <div class="col-4">
                                             
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
+                                            <button type="button" data-id="{{this._id}}" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -147,7 +147,7 @@
                                     {{#each BRM}}
                                         <div class="col-4">
                                             
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
+                                            <button type="button" data-id="{{this._id}}" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -166,7 +166,7 @@
                                     {{#each ADB}}
                                         <div class="col-4">
                                             
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
+                                            <button type="button" data-id="{{this._id}}" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -185,7 +185,7 @@
                                     {{#each BSPAG}}
                                         <div class="col-4">
                                             
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
+                                            <button type="button" data-id="{{this._id}}" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -204,7 +204,7 @@
                                     {{#each BSUSH}}
                                         <div class="col-4">
                                             
-                                            <button type="button" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
+                                            <button type="button" data-id="{{this._id}}" class="btn btn-primary btn-sm prod-btn" data-toggle="modal" data-target="#myModal">{{prodName}}</button>
                                         </div>
                                     {{/each}}
                                 </div>
@@ -218,6 +218,7 @@
                             <p class="text-primary m-0 font-weight-bold">Billing and Order</p>
                         </div>
                         <div class="card-body">
+                            {{>messages}}
                             <table class="table table-hover text-center table-sm">
                                 <thead>
                                     <tr>
@@ -237,7 +238,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="cancel font-weight-bold"><a href="/POS">Cancel</a></td>
-                                        <td colspan="2" class="checkout font-weight-bold"><a href="#">Checkout</a></td>
+                                        <td colspan="2" class="checkout font-weight-bold"><a href="/checkout">Checkout</a></td>
                                     </tr>
                                 </tfoot>
                               </table>
@@ -254,7 +255,6 @@
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    {{>messages}}
                     <form action="/billing" method="POST">
                     <input name="id" type="hidden">
                     <div class="form-group mx-sm-3 mb-2">
